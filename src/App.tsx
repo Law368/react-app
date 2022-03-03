@@ -1,7 +1,7 @@
 import './style.scss';
 import React from 'react';
 import testImage from './img/test.jpg';
-import ComponentCounter from './components/ComponentCounter';
+import {ComponentCounter} from './components/ComponentCounter';
 import FunctionalCounter from './components/FunctionalCounter';
 import PureComponentCounter from './components/PureComponentCounter';
 import CreateElementCounter from './components/CreateElementCounter';

@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 
-class PureComponentCounter extends React.PureComponent {
-    constructor(props) {
+class ClassComponent extends React.Component {
+    constructor(props: string) {
         super(props);
         this.state = {
             count: 0,
@@ -31,4 +31,4 @@ class PureComponentCounter extends React.PureComponent {
     }
 }
 
-export default PureComponentCounter;
+export {ClassComponent};
