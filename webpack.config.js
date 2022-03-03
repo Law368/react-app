@@ -4,20 +4,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        index: './src/index.ts',
+        index: './src/index.js',
     },
     module: {
         rules: [
             {
                 test: /\.s[ac]ss$/i,
-                use: [
-                    // Creates `style` nodes from JS strings
-                    'style-loader',
-                    // Translates CSS into CommonJS
-                    'css-loader',
-                    // Compiles Sass to CSS
-                    'sass-loader',
-                ],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
+            {
+                test: /\.(png|jpg|svg|gif|ico)$/,
+                use: ['file-loader'],
+                type: 'asset/resource',
             },
             {
                 test: /\.tsx?$/,
@@ -30,7 +28,10 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env'],
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-typescript',
+                        ],
                     },
                 },
             },
@@ -49,6 +50,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Development',
+            template: 'src/index.html',
         }),
     ],
     output: {
