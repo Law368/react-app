@@ -1,24 +1,32 @@
-import * as React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 
-export default function FunctionalCounter(props: {name: string}) {
-    const counter: HTMLElement = document.querySelector('.count');
-    function increase() {
-        counter.innerText += 1;
-    }
-    function decrease() {
-        // counter.innerText = Number(counter.innerText) - 1;
-    }
-
+export default function FunctionalCounter(props: {
+    counter: number;
+    name: string;
+    setCounter: Dispatch<SetStateAction<number>>;
+}) {
+    const handleIncreaseCounter = () => {
+        props.setCounter((prev: number) => {
+            const newNumber = prev + 1;
+            return newNumber;
+        });
+    };
+    const handleDecreaseCounter = () => {
+        props.setCounter((prev: number) => {
+            const newNumber = prev - 1;
+            return newNumber;
+        });
+    };
     return (
         <div className="counter">
             <div className="name">{props.name}</div>
-            <button className="increase" onClick={increase}>
+            <button className="increase" onClick={handleIncreaseCounter}>
                 +
             </button>
-            <button className="decrease" onClick={decrease}>
+            <button className="decrease" onClick={handleDecreaseCounter}>
                 -
             </button>
-            <h2 className="count">0</h2>
+            <h2 className="count">{props.counter}</h2>
         </div>
     );
 }

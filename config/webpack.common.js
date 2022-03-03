@@ -1,8 +1,7 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
     entry: {
         index: './src/index.tsx',
     },
@@ -14,7 +13,6 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif|ico)$/,
-                use: ['file-loader'],
                 type: 'asset/resource',
             },
             {
@@ -40,22 +38,11 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
-    devtool: 'inline-source-map',
-    devServer: {
-        static: './dist',
-    },
-    optimization: {
-        runtimeChunk: 'single',
-    },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Development',
             template: 'src/index.html',
         }),
+        new CleanWebpackPlugin(),
     ],
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        clean: true,
-    },
 };

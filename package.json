@@ -5,9 +5,9 @@
     "private": true,
     "scripts": {
         "watch": "webpack --watch",
-        "start": "webpack serve --open --mode development",
-        "build": "webpack",
-        "build:production": "webpack --mode production",
+        "start": "webpack serve --open --config=config/webpack.development.js",
+        "build:development": "webpack --config=config/webpack.development.js",
+        "build:production": "webpack --config=config/webpack.production.js",
         "stylelint": "stylelint '**/*{.css,.scss}'",
         "stylelint:fix": "stylelint '**/*{.css,.scss}' --fix"
     },
@@ -41,7 +41,6 @@
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-prettier": "^4.0.0",
         "file-loader": "^6.2.0",
-        "html-webpack-plugin": "^5.5.0",
         "i": "^0.3.7",
         "mini-css-extract-plugin": "^2.5.3",
         "npm": "^8.5.2",
@@ -63,7 +62,10 @@
         "webpack-dev-server": "^4.7.3"
     },
     "dependencies": {
+        "clean-webpack-plugin": "^4.0.0",
+        "html-webpack-plugin": "^5.5.0",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "webpack-merge": "^5.8.0"
     }
 }
