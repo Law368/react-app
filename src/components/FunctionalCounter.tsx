@@ -1,13 +1,12 @@
 import * as React from 'react';
 
-export default function FunctionalCounter(props) {
+export default function FunctionalCounter(props: {name: string}) {
+    const counter: HTMLElement = document.querySelector('.count');
     function increase() {
-        document.querySelector('.count').innerText =
-            Number(document.querySelector('.count').innerText) + 1;
+        counter.innerText += 1;
     }
     function decrease() {
-        document.querySelector('.count').innerText =
-            Number(document.querySelector('.count').innerText) - 1;
+        // counter.innerText = Number(counter.innerText) - 1;
     }
 
     return (

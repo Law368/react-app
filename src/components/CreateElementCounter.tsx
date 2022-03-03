@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-class CreateElementCounter extends React.Component {
-    constructor(props) {
+class CreateElementCounter extends React.Component<{}, {count: number}> {
+    constructor(props: string) {
         super(props);
         this.state = {
             count: 0,

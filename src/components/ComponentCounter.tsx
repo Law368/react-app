@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-class ClassComponent extends React.Component {
+class ClassComponent extends React.Component<{}, {count: number}> {
     constructor(props: string) {
         super(props);
         this.state = {

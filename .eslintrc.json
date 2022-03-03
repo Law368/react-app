@@ -22,6 +22,12 @@
         "import/prefer-default-export": "off",
         "no-plusplus": "off",
         "prettier/prettier": "warn",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "import/extensions": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
     }
 }
