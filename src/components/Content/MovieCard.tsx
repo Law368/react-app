@@ -14,22 +14,28 @@ export default function MovieCard(props: any) {
                 <div className="movieCard__posterContainer">
                     <img
                         className="movieCard__poster"
-                        src="#"
+                        src={props.posterPath}
                         alt="Movie Poster"
                     />
                 </div>
                 <div className="movieCard__infoContainer">
                     <div className="movieCard__title">
-                        <p>Movie Title</p>
+                        <p>{props.title}</p>
                     </div>
                     <div className="movieCard__releaseDate">
-                        <p>2006</p>
+                        <p>{props.releaseDate}</p>
                     </div>
                     <div className="movieCard__genre">
-                        <p>Animation</p>
+                        <p>{props.genre}</p>
                     </div>
                 </div>
             </div>
         </>
     );
 }
+
+MovieCard.defaultProps = {
+    title: 'Default title',
+    release_date: 'default',
+    genre: 'default',
+};
