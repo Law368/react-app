@@ -1,18 +1,17 @@
 import React from 'react';
 import {Screen} from '../../enums/enum';
-import MovieListContainer from './MovesListContainer';
-import {MovieData} from '../../interfaces/interfaces';
+import MovieListContainer from './MoviesListContainer';
+import {ContentProps} from '../../interfaces/interfaces';
 
-export default function Content(props: {
-    screen: string;
-    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
-    moviesData: MovieData[];
-}) {
+export default function Content(props: ContentProps) {
+    const handleClick = () => {
+        props.setScreen(Screen.Movie);
+    };
     return (
         <>
             <div className="content">
                 <MovieListContainer
-                    switcher={props.screen}
+                    screen={props.screen}
                     setScreen={props.setScreen}
                     moviesData={props.moviesData}
                 />

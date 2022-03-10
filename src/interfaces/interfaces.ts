@@ -1,3 +1,6 @@
+import React from 'react';
+import {Screen} from '../enums/enum';
+
 interface MovieData {
     id: number;
     title: string;
@@ -13,4 +16,10 @@ interface MovieData {
     runtime: number;
 }
 
-export {MovieData};
+interface ContentProps {
+    screen: string;
+    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
+    moviesData: MovieData[];
+}
+
+export {MovieData, ContentProps};

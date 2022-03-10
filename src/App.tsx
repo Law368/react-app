@@ -1,19 +1,14 @@
 import './style.scss';
 import React, {useState} from 'react';
-// import React from 'react';
 import testImage from './img/test.jpg';
-// import {ClassComponent} from './components/ComponentCounter';
-// import FunctionalCounter from './components/FunctionalCounter';
-// import PureComponentCounter from './components/PureComponentCounter';
-// import CreateElementCounter from './components/CreateElementCounter';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Content from './components/Content/Content';
 import {Screen} from './enums/enum';
 import {MovieData} from './interfaces/interfaces';
+import {ErrorBoundary} from './components/ErrorBoundary';
 
 export function App() {
-    // const [counter, setCounter] = useState(0);
     const [screen, setScreen] = useState(Screen.MoviesList);
     const moviesData: MovieData[] = [
         {
@@ -84,19 +79,14 @@ export function App() {
     return (
         <>
             <Header moviesData={moviesData} screen={screen} />
-            <Content
-                screen={screen}
-                setScreen={setScreen}
-                moviesData={moviesData}
-            />
-            {/* <ClassComponent />
-            <PureComponentCounter />
-            <FunctionalCounter
-                counter={counter}
-                name="Some"
-                setCounter={setCounter}
-            />
-            <CreateElementCounter /> */}
+            <ErrorBoundary>
+                <Content
+                    screen={screen}
+                    setScreen={setScreen}
+                    moviesData={moviesData}
+                />
+            </ErrorBoundary>
+
             <img src={testImage} width="50" height="100" />
             <Footer />
         </>
