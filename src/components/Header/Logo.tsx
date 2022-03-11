@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Logo() {
-    return <img src="#" alt="placeholder"></img>;
+    return <span className="logo">netflixroullete</span>;
 }

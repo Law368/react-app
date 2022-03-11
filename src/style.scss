@@ -1,13 +1,20 @@
-h1 {
-    color: navy;
+@import './components/Header/header.scss';
+@import './components/Content/content.scss';
+@import './components/Footer/footer.scss';
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.content {
-    background-color: red;
+#app {
+    display: grid;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .movieCard {
-    background-color: rgb(86, 168, 90);
+    width: 300px;
 }
 
 .movieInfo {

@@ -8,10 +8,10 @@ export default function MovieListComponents(props: ContentProps) {
             <MovieCard
                 screen={props.screen}
                 setScreen={props.setScreen}
-                title={props.moviesData[1].title}
-                posterPath={props.moviesData[1].poster_path}
-                releaseDate={props.moviesData[1].release_date}
-                genre={props.moviesData[1].genres[0]}
+                title={props.moviesData[0].title}
+                posterPath={props.moviesData[0].poster_path}
+                releaseDate={props.moviesData[0].release_date}
+                genre={props.moviesData[0].genres[0]}
             />
             <MovieCard
                 screen={props.screen}

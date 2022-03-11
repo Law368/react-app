@@ -3,9 +3,10 @@ import Logo from '../Header/Logo';
 
 export default function Header() {
     return (
-        <footer className="header">
-            <h2>This is footer</h2>
-            <Logo />
+        <footer className="footer">
+            <div className="footer__logoContainer">
+                <Logo />
+            </div>
         </footer>
     );
 }

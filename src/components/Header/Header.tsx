@@ -13,7 +13,9 @@ export default function Header(props: {
     if (props.screen === Screen.MoviesList) {
         return (
             <header className="header">
-                <Logo />
+                <div className="header__logoContainer">
+                    <Logo />
+                </div>
                 <SearchForm />
             </header>
         );
@@ -21,7 +23,12 @@ export default function Header(props: {
     if (props.screen === Screen.Movie) {
         return (
             <>
-                <MovieDetails moviesData={props.moviesData} />
+                <header className="header--movieDetails">
+                    <div className="header__logoContainer">
+                        <Logo />
+                    </div>
+                    <MovieDetails moviesData={props.moviesData} />
+                </header>
                 <SearchResults />
             </>
         );

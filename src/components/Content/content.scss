@@ -1,0 +1,45 @@
+.content {
+    &Container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+    }
+}
+
+.movieCard {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-out 100ms;
+    border-radius: 10px;
+    &__container {
+    }
+
+    &__posterContainer {
+    }
+
+    &__poster {
+        width: 100%;
+    }
+
+    &__title {
+        font-weight: bold;
+    }
+    &__releaseDate {
+        border: 1px solid;
+        border-radius: 5px;
+        width: 80px;
+        height: 20px;
+    }
+
+    &__infoContainer {
+        display: grid;
+        grid-template: 1fr 1fr / 1fr 80px;
+        padding: 10px;
+    }
+}
+
+.movieCard:hover {
+    background-color: rgb(240, 240, 240);
+}

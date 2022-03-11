@@ -11,22 +11,24 @@ export default function MovieCard(props: any) {
     return (
         <>
             <div className="movieCard" onClick={handleScreenChange}>
-                <div className="movieCard__posterContainer">
-                    <img
-                        className="movieCard__poster"
-                        src={props.posterPath}
-                        alt="Movie Poster"
-                    />
-                </div>
-                <div className="movieCard__infoContainer">
-                    <div className="movieCard__title">
-                        <p>{props.title}</p>
+                <div className="movieCard__container">
+                    <div className="movieCard__posterContainer">
+                        <img
+                            className="movieCard__poster"
+                            src={props.posterPath}
+                            alt="Movie Poster"
+                        />
                     </div>
-                    <div className="movieCard__releaseDate">
-                        <p>{props.releaseDate}</p>
-                    </div>
-                    <div className="movieCard__genre">
-                        <p>{props.genre}</p>
+                    <div className="movieCard__infoContainer">
+                        <div className="movieCard__title">
+                            <p>{props.title}</p>
+                        </div>
+                        <div className="movieCard__releaseDate">
+                            <p>{props.releaseDate}</p>
+                        </div>
+                        <div className="movieCard__genre">
+                            <p>{props.genre}</p>
+                        </div>
                     </div>
                 </div>
             </div>

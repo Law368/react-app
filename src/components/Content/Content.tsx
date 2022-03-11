@@ -10,11 +10,13 @@ export default function Content(props: ContentProps) {
     return (
         <>
             <div className="content">
-                <MovieListContainer
-                    screen={props.screen}
-                    setScreen={props.setScreen}
-                    moviesData={props.moviesData}
-                />
+                <div className="contentContainer">
+                    <MovieListContainer
+                        screen={props.screen}
+                        setScreen={props.setScreen}
+                        moviesData={props.moviesData}
+                    />
+                </div>
             </div>
         </>
     );

@@ -183,7 +183,6 @@ export function App() {
                 />
             </ErrorBoundary>
 
-            <img src={testImage} width="50" height="100" />
             <Footer />
         </>
     );
