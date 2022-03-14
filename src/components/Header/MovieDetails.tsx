@@ -1,11 +1,10 @@
 import React from 'react';
-import Logo from './Logo';
-import {MovieData} from '../../interfaces/interfaces';
+import HeaderSearchButton from './HeaderSearchButton';
 
 export default function MovieDetails(props: any) {
     return (
         <>
-            <button className="header__searchButton">search</button>
+            <HeaderSearchButton />
             <div className="header__movieDetailsContainer">
                 <div className="header__movieDetails">
                     <div className="header__moviePosterContainer">

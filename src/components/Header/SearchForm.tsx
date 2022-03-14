@@ -1,5 +1,7 @@
 import React from 'react';
 import SearchResults from './searchResults';
+import TitleButton from './TitleButton';
+import GenreButton from './GenreButton';
 
 export default function SearchForm() {
     return (
@@ -19,12 +21,8 @@ export default function SearchForm() {
                     <div className="search__mode">
                         <div className="search__modeDescription">
                             <span>search by </span>
-                            <button className="search__modeButton titleButton search__modeButton--active">
-                                Title
-                            </button>
-                            <button className="search__modeButton genreButton">
-                                Genre
-                            </button>
+                            <TitleButton />
+                            <GenreButton />
                         </div>
                         <button className="search__button">Search</button>
                     </div>
