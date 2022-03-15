@@ -1,5 +1,6 @@
 import React from 'react';
 import {Screen} from '../../enums/enum';
+import './content.scss';
 
 export default function MovieCard(props: any) {
     const handleScreenChange = () => {
