@@ -1,6 +1,7 @@
 import './style.scss';
 import React, {useState} from 'react';
-import testImage from './img/test.jpg';
+import {Provider} from 'react-redux';
+import configureStore from 'store';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Content from './components/Content/Content';
@@ -174,7 +175,9 @@ export function App() {
     ];
     return (
         <>
-            <Header moviesData={moviesData} screen={screen} />
+            <Provider store={configureStore()}>
+                <Header moviesData={moviesData} screen={screen} />
+            </Provider>
             <ErrorBoundary>
                 <Content
                     screen={screen}

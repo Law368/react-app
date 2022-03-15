@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Logo from './Logo';
 import SearchForm from './SearchForm';
 import {MovieData} from '../../interfaces/interfaces';
@@ -6,10 +7,10 @@ import SearchResults from './searchResults';
 import {Screen} from '../../enums/enum';
 import MovieDetails from './MovieDetails';
 
-export default function Header(props: {
-    moviesData: MovieData[];
-    screen: string;
-}) {
+import {changeToMoviesList} from '../../actions/changeToMoviesList';
+import {changeToMovie} from '../../actions/changeToMovie';
+
+function Header(props: {moviesData: MovieData[]; screen: string}) {
     if (props.screen === Screen.MoviesList) {
         return (
             <header className="header">
@@ -34,3 +35,14 @@ export default function Header(props: {
         );
     }
 }
+
+// TO retrive state from my store and to say that I want to these actions to be used for changing the screen
+const mapStateToProps = (state: {}) => ({
+    ...state,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+    changeToMoviesList: () => dispatch(changeToMoviesList),
+    changeToMovie: () => dispatch(changeToMovie),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
