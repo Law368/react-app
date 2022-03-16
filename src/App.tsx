@@ -1,7 +1,7 @@
 import './style.scss';
 import React, {useState} from 'react';
 import {Provider} from 'react-redux';
-import configureStore from 'store';
+import configureStore from './store/store';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Content from './components/Content/Content';
@@ -174,10 +174,9 @@ export function App() {
         },
     ];
     return (
-        <>
-            <Provider store={configureStore()}>
-                <Header moviesData={moviesData} screen={screen} />
-            </Provider>
+        <Provider store={configureStore()}>
+            <Header moviesData={moviesData} />
+
             <ErrorBoundary>
                 <Content
                     screen={screen}
@@ -187,6 +186,8 @@ export function App() {
             </ErrorBoundary>
 
             <Footer />
-        </>
+        </Provider>
     );
 }
+
+// m screen={screen}

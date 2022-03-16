@@ -10,7 +10,8 @@ import MovieDetails from './MovieDetails';
 import {changeToMoviesList} from '../../actions/changeToMoviesList';
 import {changeToMovie} from '../../actions/changeToMovie';
 
-function Header(props: {moviesData: MovieData[]; screen: string}) {
+function Header(props: {moviesData: MovieData[]; screen?: string}) {
+    console.log(props);
     if (props.screen === Screen.MoviesList) {
         return (
             <header className="header">
