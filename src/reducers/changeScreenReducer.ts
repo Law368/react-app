@@ -1,12 +1,17 @@
 import {Screen} from '../enums/enum';
 
-export default (state: any = Screen.MoviesList, action: any) => {
+const initialState = {
+    screen: Screen.MoviesList,
+};
+
+export default (state: Screen, action: any) => {
+    const currentState = state || initialState;
     switch (action.type) {
         case 'changeScreen':
             return {
                 screen: action.payload,
             };
         default:
-            return state;
+            return currentState;
     }
 };

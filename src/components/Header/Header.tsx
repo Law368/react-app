@@ -39,7 +39,7 @@ function Header(props: Props) {
 }
 
 // TO retrive state from my store and to say that I want to these actions to be used for changing the screen
-const mapStateToProps = (state: {}) => ({
+const mapStateToProps = (state: {screen: Screen}) => ({
     ...state,
 });
 
@@ -52,7 +52,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 // export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 interface Props extends PropsFromRedux {
-    screen: string;
+    screen: Screen;
     moviesData: MovieData[];
 }
 
