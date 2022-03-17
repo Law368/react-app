@@ -1,6 +1,7 @@
 import './style.scss';
 import React, {useState} from 'react';
 import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 import configureStore from './store/store';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -8,6 +9,7 @@ import Content from './components/Content/Content';
 import {Screen} from './enums/enum';
 import {MovieData} from './interfaces/interfaces';
 import {ErrorBoundary} from './components/ErrorBoundary';
+import changeScreenReducer from './reducers/changeScreenReducer';
 
 export function App() {
     const [screen, setScreen] = useState(Screen.MoviesList);
@@ -173,8 +175,10 @@ export function App() {
             runtime: 123,
         },
     ];
+
+    const store = createStore(changeScreenReducer);
     return (
-        <Provider store={configureStore()}>
+        <Provider store={store}>
             <Header moviesData={moviesData} />
 
             <ErrorBoundary>
@@ -190,4 +194,4 @@ export function App() {
     );
 }
 
-// m screen={screen}
+// moviesData={moviesData} screen={screen}

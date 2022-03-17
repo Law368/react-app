@@ -22,4 +22,8 @@ interface ContentProps {
     moviesData: MovieData[];
 }
 
-export {MovieData, ContentProps};
+interface MyState {
+    screen: Screen;
+}
+
+export {MovieData, ContentProps, MyState};

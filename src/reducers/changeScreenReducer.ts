@@ -1,4 +1,6 @@
-export default (state: any, action: any) => {
+import {Screen} from '../enums/enum';
+
+export default (state: any = Screen.MoviesList, action: any) => {
     switch (action.type) {
         case 'changeScreen':
             return {
