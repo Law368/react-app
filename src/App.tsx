@@ -1,7 +1,8 @@
 import './style.scss';
 import React, {useState} from 'react';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import {composeWithDevTools} from '@redux-devtools/extension';
 import configureStore from './store/store';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -176,7 +177,13 @@ export function App() {
         },
     ];
 
-    const store = createStore(changeScreenReducer);
+    const store = createStore(
+        changeScreenReducer,
+        composeWithDevTools(
+            applyMiddleware()
+            // other store enhancers if any
+        )
+    );
     return (
         <Provider store={store}>
             <Header moviesData={moviesData} />

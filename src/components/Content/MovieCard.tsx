@@ -1,14 +1,15 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
 import {Screen} from '../../enums/enum';
 import './content.scss';
+import {screenType} from '../../actionCreators/screenType';
 
 export default function MovieCard(props: any) {
+    const dispatch = useDispatch();
     const handleScreenChange = () => {
-        props.setScreen(() => {
-            const newScreen = Screen.Movie;
-            return newScreen;
-        });
+        dispatch(screenType(Screen.Movie));
     };
+
     return (
         <>
             <div className="movieCard" onClick={handleScreenChange}>

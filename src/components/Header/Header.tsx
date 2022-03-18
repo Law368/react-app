@@ -11,9 +11,7 @@ import {changeToMoviesList} from '../../actions/changeToMoviesList';
 import {changeToMovie} from '../../actions/changeToMovie';
 
 function Header(props: Props) {
-    // screen?: string
-    console.log(props);
-    if (props.screen === Screen.MoviesList) {
+    if (props.a === Screen.MoviesList) {
         return (
             <header className="header">
                 <div className="header__logoContainer">
@@ -23,7 +21,7 @@ function Header(props: Props) {
             </header>
         );
     }
-    if (props.screen === Screen.Movie) {
+    if (props.a === Screen.Movie) {
         return (
             <>
                 <header className="header--movieDetails">
@@ -39,8 +37,9 @@ function Header(props: Props) {
 }
 
 // TO retrive state from my store and to say that I want to these actions to be used for changing the screen
-const mapStateToProps = (state: {}) => ({
-    ...state,
+// TODO: прокидывать в компонент только необходимые ему свойства state.
+const mapStateToProps = (state: {screen: Screen}) => ({
+    a: state.screen,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -52,11 +51,10 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 // export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 interface Props extends PropsFromRedux {
-    screen: string;
+    a: Screen;
     moviesData: MovieData[];
 }
 
 export default connector(Header);
 
-// 1. set default State
-// 2. change typisation in Header component
+// Connect,mapStateToProps, mapDispatchToProps и какие еще 2 параметра можно добавить в hoc Connect
