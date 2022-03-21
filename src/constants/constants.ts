@@ -1,3 +1,4 @@
-const changeScreen = 'changeScreen';
+const SCREEN_CHANGE = 'changeScreen';
+const MOVIES_FETCHING = 'getMovies';
 
-export {changeScreen};
+export {SCREEN_CHANGE, MOVIES_FETCHING};
