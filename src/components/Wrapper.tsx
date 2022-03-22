@@ -8,6 +8,7 @@ import {ErrorBoundary} from './ErrorBoundary';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import {Screen} from '../enums/enum';
+import {moviesFetch} from '../actionCreators/moviesFetch';
 
 export default function Wrapper() {
     const moviesData: MovieData[] = [
@@ -174,8 +175,7 @@ export default function Wrapper() {
     ];
     const dispatch = useDispatch();
     useEffect(() => {
-        // TODO: Использовать Action creator а не объект.
-        dispatch({type: MOVIES_FETCHING, payload: moviesData});
+        dispatch(moviesFetch(moviesData));
     }, []);
     const movies = useSelector((state: State) => state.moviesData);
     const [screen, setScreen] = useState(Screen.MoviesList);
