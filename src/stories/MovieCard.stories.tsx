@@ -18,5 +18,3 @@ movieCard.args = {
     releaseDate: '2018',
     genre: 'Drama',
 };
-
-// TODO: вынести в stories movieCard, buttons и logo
