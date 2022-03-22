@@ -4,15 +4,11 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import {composeWithDevTools} from '@redux-devtools/extension';
 import thunk from 'redux-thunk';
-import changeScreenReducer from './reducers/changeScreenReducer';
+import changeScreenReducer from './reducers/commonReducer';
 import Wrapper from './components/Wrapper';
+import {store} from './store/store';
 
 export function App() {
-    const store = createStore(
-        changeScreenReducer,
-        composeWithDevTools(applyMiddleware(thunk))
-    );
-
     return (
         <Provider store={store}>
             <Wrapper />

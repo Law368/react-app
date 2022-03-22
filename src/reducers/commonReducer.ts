@@ -1,6 +1,7 @@
 import {Screen} from '../enums/enum';
 import {SCREEN_CHANGE, MOVIES_FETCHING} from '../constants/constants';
 import {MovieData} from '../interfaces/interfaces';
+import log from '../helpers/log';
 
 const initialState = {
     screen: Screen.MoviesList,

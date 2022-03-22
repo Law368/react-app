@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 
-import {State} from '../reducers/changeScreenReducer';
+import {State} from '../reducers/commonReducer';
 import Content from './Content/Content';
 import {ErrorBoundary} from './ErrorBoundary';
 import Footer from './Footer/Footer';

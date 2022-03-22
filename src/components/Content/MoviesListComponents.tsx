@@ -80,3 +80,5 @@ export default function MovieListComponents(props: ContentProps) {
         </>
     );
 }
+
+// TODO: Добавть цикл map и на каждой итерации добавить MovieCard

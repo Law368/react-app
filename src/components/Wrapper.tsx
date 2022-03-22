@@ -1,13 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {MOVIES_FETCHING} from '../constants/constants';
+import React, {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {MOVIES_FETCHING} from '../actions/constants/constants';
 import {MovieData} from '../interfaces/interfaces';
-import {State} from '../reducers/changeScreenReducer';
-import Content from './Content/Content';
-import {ErrorBoundary} from './ErrorBoundary';
-import Footer from './Footer/Footer';
-import Header from './Header/Header';
-import {Screen} from '../enums/enum';
 import Wrapper2 from './Wrapper2';
 
 export default function Wrapper() {
@@ -173,17 +167,17 @@ export default function Wrapper() {
             runtime: 123,
         },
     ];
-    // const [screen, setScreen] = useState(Screen.MoviesList);
     const dispatch = useDispatch();
     useEffect(() => {
-        console.log(moviesData);
-        dispatch({type: MOVIES_FETCHING, moviesData});
+        // TODO: Использовать Action creator а не объект.
+        dispatch({type: MOVIES_FETCHING, payload: moviesData});
     }, []);
 
-    // const movies = useSelector((state: State) => state.moviesData);
     return (
         <>
             <Wrapper2 />
         </>
     );
 }
+
+// TODO: убрать Wrapper2 и перенести данные во Wrapper
