@@ -1,8 +1,13 @@
-import React, {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {MOVIES_FETCHING} from '../actions/constants/constants';
 import {MovieData} from '../interfaces/interfaces';
-import Wrapper2 from './Wrapper2';
+import {State} from '../reducers/commonReducer';
+import Content from './Content/Content';
+import {ErrorBoundary} from './ErrorBoundary';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
+import {Screen} from '../enums/enum';
 
 export default function Wrapper() {
     const moviesData: MovieData[] = [
@@ -172,12 +177,20 @@ export default function Wrapper() {
         // TODO: Использовать Action creator а не объект.
         dispatch({type: MOVIES_FETCHING, payload: moviesData});
     }, []);
+    const movies = useSelector((state: State) => state.moviesData);
+    const [screen, setScreen] = useState(Screen.MoviesList);
 
     return (
         <>
-            <Wrapper2 />
+            <Header moviesData={movies} />
+            <ErrorBoundary>
+                <Content
+                    screen={screen}
+                    setScreen={setScreen}
+                    moviesData={movies}
+                />
+            </ErrorBoundary>
+            <Footer />
         </>
     );
 }
-
-// TODO: убрать Wrapper2 и перенести данные во Wrapper
