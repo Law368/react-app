@@ -41,11 +41,13 @@ const mapStateToProps = (state: {screen: Screen}) => ({
     a: state.screen,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-    changeScreen: () => dispatch(changeScreen(Screen.MoviesList)),
-    changeToMovie: () => dispatch(changeScreen(Screen.Movie)),
-});
-const connector = connect(mapStateToProps, mapDispatchToProps);
+// const mapDispatchToProps = (dispatch: any) => ({
+//     // changeScreen: () => dispatch(changeScreen(Screen.MoviesList)),
+//     // changeToMovie: () => dispatch(changeScreen(Screen.Movie)),
+//     setScreenType: (sreeenType: Screen) => dispatch(changeScreen(sreeenType)),
+// });
+
+const connector = connect(mapStateToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 // export default connect(mapStateToProps, mapDispatchToProps)(Header);
 

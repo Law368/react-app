@@ -1,7 +1,26 @@
-// export const fetchMovies = () => {
-//     return function(dispatch) {
-//         const url = 'http://react-cdp-api.herokuapp.com/movies';
-//         const result = fetch(url).then((data) => {
-//         data.json().then(dataJson => dispatch('ActionCreatorhere!(json)'))
-//     }
-// }
+import {Dispatch} from 'redux';
+import {moviesFetch} from './actionCreators/moviesFetch';
+import Header from './components/Header/Header';
+import {MovieData} from './interfaces/interfaces';
+
+export function fetchMovies() {
+    const myHeader = new Headers();
+    myHeader.append('Access-Control-Allow-Origin', 'randomStuff');
+    return (
+        dispatcher: Dispatch<{
+            type: string;
+            payload: MovieData[];
+        }>
+    ) => {
+        const url = 'https://reactjs-cdp.herokuapp.com/movies';
+        fetch(url, {
+            mode: 'cors',
+            headers: myHeader,
+        }).then((data) => {
+            data.json().then((response) => {
+                dispatcher(moviesFetch(response.data));
+            });
+        });
+        // dispatch(moviesFetch(movies));
+    };
+}

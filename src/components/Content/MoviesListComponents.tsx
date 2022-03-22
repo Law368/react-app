@@ -13,6 +13,7 @@ export default function MovieListComponents(props: ContentProps) {
                     posterPath={movieData.poster_path}
                     releaseDate={movieData.release_date.substring(0, 4)}
                     genre={movieData.genres[0]}
+                    key={movieData.id}
                 />
             ))}
         </>

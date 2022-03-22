@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {Dispatch, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {MOVIES_FETCHING} from '../actions/constants/constants';
-import {MovieData} from '../interfaces/interfaces';
+import {MovieData, MyState} from '../interfaces/interfaces';
 import {State} from '../reducers/commonReducer';
 import Content from './Content/Content';
 import {ErrorBoundary} from './ErrorBoundary';
@@ -9,6 +8,8 @@ import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import {Screen} from '../enums/enum';
 import {moviesFetch} from '../actionCreators/moviesFetch';
+import {MOVIES_FETCHING} from '../actions/constants/constants';
+import {fetchMovies} from '../fetchMovies';
 
 export default function Wrapper() {
     const moviesData: MovieData[] = [
@@ -175,7 +176,8 @@ export default function Wrapper() {
     ];
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(moviesFetch(moviesData));
+        dispatch(fetchMovies());
+        // dispatch(moviesFetch(moviesData));
     }, []);
     const movies = useSelector((state: State) => state.moviesData);
     const [screen, setScreen] = useState(Screen.MoviesList);
