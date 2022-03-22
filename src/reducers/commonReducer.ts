@@ -1,5 +1,5 @@
 import {Screen} from '../enums/enum';
-import {SCREEN_CHANGE, MOVIES_FETCHING} from '../constants/constants';
+import {SCREEN_CHANGE, MOVIES_FETCHING} from '../actions/constants/constants';
 import {MovieData} from '../interfaces/interfaces';
 import log from '../helpers/log';
 

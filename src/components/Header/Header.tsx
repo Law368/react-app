@@ -7,8 +7,7 @@ import SearchResults from './searchResults';
 import {Screen} from '../../enums/enum';
 import MovieDetails from './MovieDetails';
 
-import {changeToMoviesList} from '../../actions/changeToMoviesList';
-import {changeToMovie} from '../../actions/changeToMovie';
+import {changeScreen} from '../../actions/changeScreen';
 
 function Header(props: Props) {
     if (props.a === Screen.MoviesList) {
@@ -43,8 +42,8 @@ const mapStateToProps = (state: {screen: Screen}) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-    changeToMoviesList: () => dispatch(changeToMoviesList),
-    changeToMovie: () => dispatch(changeToMovie),
+    changeScreen: () => dispatch(changeScreen(Screen.MoviesList)),
+    changeToMovie: () => dispatch(changeScreen(Screen.Movie)),
 });
 const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
