@@ -5,7 +5,7 @@ import {MovieData} from './interfaces/interfaces';
 
 export function fetchMovies() {
     const myHeader = new Headers();
-    myHeader.append('Access-Control-Allow-Origin', 'randomStuff');
+    myHeader.append('Access-Control-Allow-Origin', '*');
     return (
         dispatcher: Dispatch<{
             type: string;
@@ -21,6 +21,5 @@ export function fetchMovies() {
                 dispatcher(moviesFetch(response.data));
             });
         });
-        // dispatch(moviesFetch(movies));
     };
 }

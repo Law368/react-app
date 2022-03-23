@@ -1,5 +1,9 @@
 import {Screen} from '../enums/enum';
-import {SCREEN_CHANGE, MOVIES_FETCHING} from '../actions/constants/constants';
+import {
+    SCREEN_CHANGE,
+    MOVIES_FETCHING,
+    SEARCH_MODE,
+} from '../actions/constants/constants';
 import {MovieData} from '../interfaces/interfaces';
 
 const initialState = {
@@ -24,28 +28,13 @@ export default (state: State, action: any) => {
                 ...state,
                 moviesData: action.payload,
             };
+        case SEARCH_MODE:
+            return {
+                ...state,
+                searchMode: action.payload,
+            };
+
         default:
             return currentState;
     }
 };
-
-/*
-
-import {MOVIES_FETCHING} from './constants/constants';
-
-export const fetchMovies = () => (dispatch: any) => {
-    const url = 'http://react-cdp-api.herokuapp.com/movies';
-    const result = fetch(url).then((data) => {
-        data.json().then((dataJson) => {
-            console.log(dataJson);
-
-            return dispatch({
-                type: MOVIES_FETCHING,
-                movies: dataJson,
-            });
-        });
-    });
-};
-
-
-*/

@@ -3,4 +3,9 @@ enum Screen {
     Movie = 'movie',
 }
 
-export {Screen};
+enum Search {
+    Title = 'title',
+    Genre = 'genre',
+}
+
+export {Screen, Search};
