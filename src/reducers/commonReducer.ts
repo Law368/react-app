@@ -1,4 +1,4 @@
-import {Screen} from '../enums/enum';
+import {Screen, Search} from '../enums/enum';
 import {
     SCREEN_CHANGE,
     MOVIES_FETCHING,
@@ -8,11 +8,13 @@ import {MovieData} from '../interfaces/interfaces';
 
 const initialState = {
     screen: Screen.MoviesList,
+    searchMode: Search.Title,
 };
 
 export interface State {
     screen: Screen;
     moviesData: MovieData[];
+    searchMode: Search;
 }
 
 export default (state: State, action: any) => {

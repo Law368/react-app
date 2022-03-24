@@ -4,12 +4,14 @@ import Logo from './Logo';
 import SearchForm from './SearchForm';
 import {MovieData} from '../../interfaces/interfaces';
 import SearchResults from './searchResults';
-import {Screen} from '../../enums/enum';
+import {Screen, Search} from '../../enums/enum';
 import MovieDetails from './MovieDetails';
 
-import {changeScreen} from '../../actions/changeScreen';
+import log from '../../helpers/log';
 
 function Header(props: Props) {
+    log(props);
+
     if (props.a === Screen.MoviesList) {
         return (
             <header className="header">
@@ -37,8 +39,9 @@ function Header(props: Props) {
 
 // TO retrive state from my store and to say that I want to these actions to be used for changing the screen
 // TODO: прокидывать в компонент только необходимые ему свойства state.
-const mapStateToProps = (state: {screen: Screen}) => ({
+const mapStateToProps = (state: {screen: Screen; searchMode: Search}) => ({
     a: state.screen,
+    searchMode: state.searchMode,
 });
 
 // const mapDispatchToProps = (dispatch: any) => ({
@@ -51,7 +54,7 @@ const connector = connect(mapStateToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 // export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
-interface Props extends PropsFromRedux {
+export interface Props extends PropsFromRedux {
     a: Screen;
     moviesData: MovieData[];
 }

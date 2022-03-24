@@ -1,12 +1,12 @@
 import React from 'react';
-import TitleButton from '../components/Header/TitleButton';
+import SearchModeButton from '../components/Header/SearchModeButton';
 
 export default {
-    title: 'TitleButton',
-    component: TitleButton,
+    title: 'SearchModeButton',
+    component: SearchModeButton,
 };
 
-const Template = (args: any) => <TitleButton {...args} />;
+const Template = (args: any) => <SearchModeButton {...args} />;
 
 export const titleSearchButton = Template.bind({});
 titleSearchButton.args = {};

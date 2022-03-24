@@ -1,10 +1,6 @@
 import './style.scss';
 import React from 'react';
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from '@redux-devtools/extension';
-import thunk from 'redux-thunk';
-import changeScreenReducer from './reducers/commonReducer';
 import Wrapper from './components/Wrapper';
 import {store} from './store/store';
 

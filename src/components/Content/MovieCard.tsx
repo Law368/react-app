@@ -3,8 +3,9 @@ import {useDispatch} from 'react-redux';
 import {Screen} from '../../enums/enum';
 import './content.scss';
 import {screenType} from '../../actionCreators/screenType';
+import {MovieCardProps} from '../../interfaces/interfaces';
 
-export default function MovieCard(props: any) {
+export default function MovieCard(props: MovieCardProps) {
     const dispatch = useDispatch();
     const handleScreenChange = () => {
         dispatch(screenType(Screen.Movie));
@@ -17,7 +18,7 @@ export default function MovieCard(props: any) {
                     <div className="movieCard__posterContainer">
                         <img
                             className="movieCard__poster"
-                            src={props.posterPath}
+                            src={props.poster_path}
                             alt="Movie Poster"
                         />
                     </div>
@@ -26,7 +27,7 @@ export default function MovieCard(props: any) {
                             <p>{props.title}</p>
                         </div>
                         <div className="movieCard__releaseDate">
-                            <p>{props.releaseDate}</p>
+                            <p>{props.release_date}</p>
                         </div>
                         <div className="movieCard__genre">
                             <p>{props.genre}</p>
