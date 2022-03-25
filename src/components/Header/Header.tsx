@@ -10,8 +10,6 @@ import MovieDetails from './MovieDetails';
 import log from '../../helpers/log';
 
 function Header(props: Props) {
-    log(props);
-
     if (props.a === Screen.MoviesList) {
         return (
             <header className="header">

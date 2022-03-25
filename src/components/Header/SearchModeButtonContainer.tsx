@@ -1,33 +1,36 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {searchMode} from '../../actionCreators/searchMode';
-import {SEARCH_MODE} from '../../actions/constants/constants';
 import {Search} from '../../enums/enum';
 import log from '../../helpers/log';
+import {State} from '../../reducers/commonReducer';
 import SearchModeButton from './SearchModeButton';
 
 export function SearchModeButtonContainer() {
+    const searchType = useSelector((state: State) => state.searchMode);
     const dispatch = useDispatch();
-    const handleActiveClass = (event: any) => {
-        dispatch(searchMode(Search.Title));
-        event.preventDefault();
-        const target = event.currentTarget;
-        const buttonList = document.querySelectorAll('.search__modeButton');
-        buttonList.forEach((button) => {
-            if (
-                button === target &&
-                !button.classList.contains('search__modeButton--active')
-            ) {
-                return button.classList.add('search__modeButton--active');
-            }
-            return button.classList.remove('search__modeButton--active');
-        });
+    const handleActiveClass = (index: number) => {
+        if (index === 0) {
+            dispatch(searchMode(Search.Title));
+        } else if (index === 1) {
+            dispatch(searchMode(Search.Genre));
+        }
     };
 
     return (
         <>
-            <SearchModeButton />
-            <SearchModeButton />
+            <SearchModeButton
+                name={'title'}
+                isActive={Search.Title === searchType}
+                handleClick={handleActiveClass}
+                index={0}
+            />
+            <SearchModeButton
+                name={'genre'}
+                isActive={Search.Genre === searchType}
+                handleClick={handleActiveClass}
+                index={1}
+            />
         </>
     );
 }
@@ -40,7 +43,3 @@ export function SearchModeButtonContainer() {
 // TODO: Добавить выбранный фильм в store свойство CurrentMovie со всеми его значениями.
 // Добавляю данные из стора в хедер после клика по плакату
 // производится поиск по первому жанру из свойств фильма - get запрос movie.genre[0]
-
-// TODO: сделать универсальную кнопку смены поиска добавив текст кнопки через props
-
-// TODO: сделать компонент контейнер. В нем будет прописана логика кнопок, а также в нем будут добавлены два одинаковых компонента кнопок но с разными пропсами active и name
