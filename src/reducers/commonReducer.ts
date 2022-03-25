@@ -18,6 +18,7 @@ export interface State {
 }
 
 export default (state: State, action: any) => {
+    console.log(action);
     const currentState = state || initialState;
     switch (action.type) {
         case SCREEN_CHANGE:

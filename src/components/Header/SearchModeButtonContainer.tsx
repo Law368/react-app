@@ -9,27 +9,28 @@ import SearchModeButton from './SearchModeButton';
 export function SearchModeButtonContainer() {
     const searchType = useSelector((state: State) => state.searchMode);
     const dispatch = useDispatch();
-    const handleActiveClass = (index: number) => {
-        if (index === 0) {
+
+    const handleActiveClass = (name: string) => () => {
+        if (name === 'title') {
             dispatch(searchMode(Search.Title));
-        } else if (index === 1) {
+        }
+        if (name === 'genre') {
             dispatch(searchMode(Search.Genre));
         }
     };
 
+    // TODO: переделать handler на 2 функции для title и для genre
     return (
         <>
             <SearchModeButton
                 name={'title'}
-                isActive={Search.Title === searchType}
+                isActive={searchType === Search.Title}
                 handleClick={handleActiveClass}
-                index={0}
             />
             <SearchModeButton
                 name={'genre'}
-                isActive={Search.Genre === searchType}
+                isActive={searchType === Search.Genre}
                 handleClick={handleActiveClass}
-                index={1}
             />
         </>
     );
