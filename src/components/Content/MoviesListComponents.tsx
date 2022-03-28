@@ -14,6 +14,7 @@ export default function MovieListComponents(props: ContentProps) {
                     release_date={movieData.release_date.substring(0, 4)}
                     genre={movieData.genres[0]}
                     key={movieData.id}
+                    id={movieData.id}
                 />
             ))}
         </>

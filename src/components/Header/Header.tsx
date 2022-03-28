@@ -3,11 +3,9 @@ import {connect, ConnectedProps} from 'react-redux';
 import Logo from './Logo';
 import SearchForm from './SearchForm';
 import {MovieData} from '../../interfaces/interfaces';
-import SearchResults from './searchResults';
+import SearchResultsContainer from './searchResultsContainer';
 import {Screen, Search} from '../../enums/enum';
 import MovieDetails from './MovieDetails';
-
-import log from '../../helpers/log';
 
 function Header(props: Props) {
     if (props.a === Screen.MoviesList) {
@@ -29,7 +27,7 @@ function Header(props: Props) {
                     </div>
                     <MovieDetails moviesData={props.moviesData} />
                 </header>
-                <SearchResults />
+                <SearchResultsContainer />
             </>
         );
     }
@@ -37,7 +35,11 @@ function Header(props: Props) {
 
 // TO retrive state from my store and to say that I want to these actions to be used for changing the screen
 // TODO: прокидывать в компонент только необходимые ему свойства state.
-const mapStateToProps = (state: {screen: Screen; searchMode: Search}) => ({
+const mapStateToProps = (state: {
+    screen: Screen;
+    searchMode: Search;
+    currentMovie: MovieData;
+}) => ({
     a: state.screen,
     searchMode: state.searchMode,
 });

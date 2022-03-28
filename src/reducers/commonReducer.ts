@@ -1,24 +1,28 @@
-import {Screen, Search} from '../enums/enum';
+import {Screen, Search, Sort} from '../enums/enum';
 import {
     SCREEN_CHANGE,
     MOVIES_FETCHING,
     SEARCH_MODE,
+    SORT_MODE,
+    CURRENT_MOVIE,
 } from '../actions/constants/constants';
 import {MovieData} from '../interfaces/interfaces';
 
 const initialState = {
     screen: Screen.MoviesList,
     searchMode: Search.Title,
+    sortMode: Sort.Rating,
 };
 
 export interface State {
     screen: Screen;
     moviesData: MovieData[];
     searchMode: Search;
+    sortMode: Sort;
+    currentMovie: MovieData;
 }
 
 export default (state: State, action: any) => {
-    console.log(action);
     const currentState = state || initialState;
     switch (action.type) {
         case SCREEN_CHANGE:
@@ -36,7 +40,17 @@ export default (state: State, action: any) => {
                 ...state,
                 searchMode: action.payload,
             };
-
+        case SORT_MODE:
+            return {
+                ...state,
+                sortMode: action.payload,
+            };
+        case CURRENT_MOVIE: {
+            return {
+                ...state,
+                currentMovie: action.payload,
+            };
+        }
         default:
             return currentState;
     }

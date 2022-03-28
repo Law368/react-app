@@ -1,14 +1,23 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {Screen} from '../../enums/enum';
 import './content.scss';
 import {screenType} from '../../actionCreators/screenType';
-import {MovieCardProps} from '../../interfaces/interfaces';
+import {MovieCardProps, MovieData} from '../../interfaces/interfaces';
+import {State} from '../../reducers/commonReducer';
+import {currentMovie} from '../../actionCreators/currentMovie';
 
 export default function MovieCard(props: MovieCardProps) {
     const dispatch = useDispatch();
+    const movies = useSelector((state: State) => state.moviesData);
     const handleScreenChange = () => {
         dispatch(screenType(Screen.Movie));
+
+        function isSelected(movie: MovieData) {
+            return movie.id === props.id;
+        }
+        const selectedMovie = movies.find(isSelected);
+        dispatch(currentMovie(selectedMovie));
     };
 
     return (

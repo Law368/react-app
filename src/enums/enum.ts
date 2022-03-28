@@ -8,4 +8,9 @@ enum Search {
     Genre = 'genre',
 }
 
-export {Screen, Search};
+enum Sort {
+    ReleaseDate = 'releaseDate',
+    Rating = 'rating',
+}
+
+export {Screen, Search, Sort};

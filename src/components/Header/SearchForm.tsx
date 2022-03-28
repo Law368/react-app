@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchResults from './searchResults';
+import SearchResultsContainer from './searchResultsContainer';
 import {SearchModeButtonContainer} from './SearchModeButtonContainer';
 
 export default function SearchForm() {
@@ -26,7 +26,7 @@ export default function SearchForm() {
                     </div>
                 </form>
             </div>
-            <SearchResults />
+            <SearchResultsContainer />
         </>
     );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Screen, Search} from '../enums/enum';
+import {Screen} from '../enums/enum';
 
 interface MovieData {
     id?: number;

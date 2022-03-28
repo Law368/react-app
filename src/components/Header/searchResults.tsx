@@ -1,18 +1,18 @@
 import React from 'react';
 
-export default function SearchResults() {
+export default function SearchResults(props: {
+    name: string;
+    isActive: boolean;
+    handleClick: Function;
+}) {
     return (
-        <div className="header__searchResultsContainer">
-            <div className="header__searchResults">
-                <p className="header__numberOfFilmsFound">7 movies found</p>
-                <div className="header__sortBy">
-                    <span>Sort by</span>
-                    <p className="header__sortOption ">release date</p>
-                    <p className="header__sortOption header__sortOption--active">
-                        rating
-                    </p>
-                </div>
-            </div>
-        </div>
+        <p
+            className={`header__sortOption ${
+                props.isActive ? 'header__sortOption--active' : ''
+            }`}
+            onClick={props.handleClick(props.name)}
+        >
+            {props.name}
+        </p>
     );
 }

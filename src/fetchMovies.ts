@@ -12,10 +12,12 @@ export function fetchMovies() {
             payload: MovieData[];
         }>
     ) => {
-        const url = 'https://reactjs-cdp.herokuapp.com/movies';
+        const url =
+            'https://reactjs-cdp.herokuapp.com/movies?search=Drama&searchBy=genres';
         fetch(url, {
             mode: 'cors',
             headers: myHeader,
+            method: 'GET',
         }).then((data) => {
             data.json().then((response) => {
                 dispatcher(moviesFetch(response.data));

@@ -8,6 +8,7 @@ export default function SearchModeButton(props: {
 }) {
     return (
         <button
+            type="button"
             className={`search__modeButton ${
                 props.isActive ? 'search__modeButton--active' : ''
             }`}
