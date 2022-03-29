@@ -1,11 +1,13 @@
 import {Dispatch} from 'redux';
 import {moviesFetch} from './actionCreators/moviesFetch';
-import Header from './components/Header/Header';
+import {Sort} from './enums/enum';
 import {MovieData} from './interfaces/interfaces';
+import {State} from './reducers/commonReducer';
 
 export function fetchMovies() {
     const myHeader = new Headers();
     myHeader.append('Access-Control-Allow-Origin', '*');
+
     return (
         dispatcher: Dispatch<{
             type: string;
@@ -14,6 +16,15 @@ export function fetchMovies() {
     ) => {
         const url =
             'https://reactjs-cdp.herokuapp.com/movies?search=Drama&searchBy=genres';
+        const anotherUrl = 'xxx';
+        const decideWhatUrl = function () {
+            if (Sort.Rating) {
+                return url;
+            }
+            if (Sort.ReleaseDate) {
+                return anotherUrl;
+            }
+        };
         fetch(url, {
             mode: 'cors',
             headers: myHeader,
