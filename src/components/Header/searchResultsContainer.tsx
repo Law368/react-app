@@ -11,6 +11,7 @@ import SearchResults from './SearchResults';
 export default function SearchResultsContainer() {
     const sortType = useSelector((state: State) => state.sortMode);
     const movieList = useSelector((state: State) => state.moviesData);
+    // TODO убрать доступ к movieList, получить инфу через пропсы
     const dispatch = useDispatch();
     const handleActiveClass = (name: string) => () => {
         if (name === 'release date') {
@@ -23,7 +24,11 @@ export default function SearchResultsContainer() {
     return (
         <div className="header__searchResultsContainer">
             <div className="header__searchResults">
-                <p className="header__numberOfFilmsFound">7 movies found</p>
+                {movieList && (
+                    <p className="header__numberOfFilmsFound">
+                        {movieList.length} films found
+                    </p>
+                )}
                 <div className="header__sortBy">
                     <span>Sort by</span>
                     <SearchResults

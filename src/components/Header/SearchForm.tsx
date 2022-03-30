@@ -1,8 +1,26 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
 import SearchResultsContainer from './searchResultsContainer';
 import {SearchModeButtonContainer} from './SearchModeButtonContainer';
+import {searchInput} from '../../actionCreators/searchInput';
+import {fetchMovies} from '../../fetchMovies';
+import {Search} from '../../enums/enum';
 
 export default function SearchForm() {
+    let inputValue: string;
+    const dispatch = useDispatch();
+    const getInputValue = (something: any) => {
+        const targetValue = something.target.value;
+        inputValue = targetValue;
+    };
+    const handleSearch = () => {
+        dispatch(searchInput(inputValue));
+        if (Search.Title) {
+            dispatch(fetchMovies(Search.Title, inputValue));
+        }
+        dispatch(fetchMovies(Search.Genre, inputValue));
+    };
+
     return (
         <>
             <div className="header__searchFormContainer">
@@ -16,13 +34,20 @@ export default function SearchForm() {
                         name="q"
                         placeholder="Your search input"
                         className="search__input"
+                        onChange={getInputValue}
                     />
                     <div className="search__mode">
                         <div className="search__modeDescription">
                             <span>search by </span>
                             <SearchModeButtonContainer />
                         </div>
-                        <button className="search__button">Search</button>
+                        <button
+                            type="button"
+                            className="search__button"
+                            onClick={handleSearch}
+                        >
+                            Search
+                        </button>
                     </div>
                 </form>
             </div>

@@ -1,7 +1,7 @@
 import {CURRENT_MOVIE} from '../actions/constants/constants';
-import {MovieData} from '../interfaces/interfaces';
+import {MovieCardProps, MovieData} from '../interfaces/interfaces';
 
-export const currentMovie = (payload: MovieData) => ({
+export const currentMovie = (payload: MovieCardProps) => ({
     type: CURRENT_MOVIE,
     payload,
 });

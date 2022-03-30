@@ -5,7 +5,7 @@ enum Screen {
 
 enum Search {
     Title = 'title',
-    Genre = 'genre',
+    Genre = 'genres',
 }
 
 enum Sort {

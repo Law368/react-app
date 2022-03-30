@@ -7,8 +7,6 @@ import {ErrorBoundary} from './ErrorBoundary';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import {Screen} from '../enums/enum';
-import {moviesFetch} from '../actionCreators/moviesFetch';
-import {MOVIES_FETCHING} from '../actions/constants/constants';
 import {fetchMovies} from '../fetchMovies';
 
 export default function Wrapper() {
@@ -17,6 +15,7 @@ export default function Wrapper() {
         dispatch(fetchMovies());
     }, []);
     const movies = useSelector((state: State) => state.moviesData);
+    const sort = useSelector((state: State) => state.sortMode);
     const [screen, setScreen] = useState(Screen.MoviesList);
 
     return (

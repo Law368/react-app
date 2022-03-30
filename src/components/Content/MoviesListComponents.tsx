@@ -5,10 +5,9 @@ import {ContentProps} from '../../interfaces/interfaces';
 import {State} from '../../reducers/commonReducer';
 
 export default function MovieListComponents(props: ContentProps) {
-    const movieList = useSelector((state: State) => state.moviesData);
     return (
         <>
-            {movieList.map((movieData) => (
+            {props.moviesData.map((movieData) => (
                 <MovieCard
                     screen={props.screen}
                     setScreen={props.setScreen}

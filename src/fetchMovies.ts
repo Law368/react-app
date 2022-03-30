@@ -1,10 +1,12 @@
 import {Dispatch} from 'redux';
 import {moviesFetch} from './actionCreators/moviesFetch';
-import {Sort} from './enums/enum';
+import {Search} from './enums/enum';
 import {MovieData} from './interfaces/interfaces';
-import {State} from './reducers/commonReducer';
 
-export function fetchMovies() {
+export function fetchMovies(
+    searchtType: string = Search.Title,
+    searchInput: string = ''
+) {
     const myHeader = new Headers();
     myHeader.append('Access-Control-Allow-Origin', '*');
 
@@ -14,17 +16,8 @@ export function fetchMovies() {
             payload: MovieData[];
         }>
     ) => {
-        const url =
-            'https://reactjs-cdp.herokuapp.com/movies?search=Drama&searchBy=genres';
-        const anotherUrl = 'xxx';
-        const decideWhatUrl = function () {
-            if (Sort.Rating) {
-                return url;
-            }
-            if (Sort.ReleaseDate) {
-                return anotherUrl;
-            }
-        };
+        const url = `https://reactjs-cdp.herokuapp.com/movies?searchBy=${searchtType}&search=${searchInput}`;
+
         fetch(url, {
             mode: 'cors',
             headers: myHeader,

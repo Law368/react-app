@@ -5,6 +5,7 @@ import {
     SEARCH_MODE,
     SORT_MODE,
     CURRENT_MOVIE,
+    SEARCH_INPUT,
 } from '../actions/constants/constants';
 import {MovieData} from '../interfaces/interfaces';
 
@@ -20,6 +21,7 @@ export interface State {
     searchMode: Search;
     sortMode: Sort;
     currentMovie: MovieData;
+    searchInput: string;
 }
 
 export default (state: State, action: any) => {
@@ -49,6 +51,12 @@ export default (state: State, action: any) => {
             return {
                 ...state,
                 currentMovie: action.payload,
+            };
+        }
+        case SEARCH_INPUT: {
+            return {
+                ...state,
+                searchInput: action.payload,
             };
         }
         default:

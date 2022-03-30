@@ -17,7 +17,7 @@ export default function MovieCard(props: MovieCardProps) {
             return movie.id === props.id;
         }
         const selectedMovie = movies.find(isSelected);
-        dispatch(currentMovie(selectedMovie));
+        dispatch(currentMovie(props));
     };
 
     return (
