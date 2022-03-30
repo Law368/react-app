@@ -57,6 +57,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 export interface Props extends PropsFromRedux {
     a: Screen;
     moviesData: MovieData[];
+    searchMode: Search;
 }
 
 export default connector(Header);
