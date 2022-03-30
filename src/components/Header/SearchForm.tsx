@@ -7,20 +7,20 @@ import {fetchMovies} from '../../fetchMovies';
 import {Search, Sort} from '../../enums/enum';
 import {State} from '../../reducers/commonReducer';
 
-export default function SearchForm() {
+export default function SearchForm(props: {searchType: Search}) {
     const inputState = {value: ''};
     const [newInputState, setInputState] = useState(inputState);
     const dispatch = useDispatch();
-    const stateSearchMode = useSelector((state: State) => state.searchMode);
+    // const stateSearchMode = useSelector((state: State) => state.searchMode);
     const handleChange = (event: any) => {
         setInputState({value: event.target.value});
     };
     const handleSearch = () => {
         dispatch(searchInput(newInputState));
-        if (stateSearchMode === Search.Title) {
+        if (props.searchType === Search.Title) {
             dispatch(fetchMovies(Search.Title, newInputState.value));
         }
-        if (stateSearchMode === Search.Genre) {
+        if (props.searchType === Search.Genre) {
             dispatch(fetchMovies(Search.Genre, newInputState.value));
         }
     };

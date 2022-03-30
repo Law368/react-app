@@ -14,10 +14,12 @@ export default function MovieListComponents(props: ContentProps) {
                     title={movieData.title}
                     poster_path={movieData.poster_path}
                     release_date={movieData.release_date.substring(0, 4)}
-                    genre={movieData.genres[0]}
+                    genres={movieData.genres[0]}
                     key={movieData.id}
                     id={movieData.id}
                     vote_average={movieData.vote_average}
+                    runtime={movieData.runtime}
+                    overview={movieData.overview}
                 />
             ))}
         </>

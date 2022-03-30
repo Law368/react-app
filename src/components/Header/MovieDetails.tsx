@@ -5,6 +5,7 @@ import HeaderSearchButton from './HeaderSearchButton';
 
 export default function MovieDetails(props: any) {
     const currentMovie = useSelector((state: State) => state.currentMovie);
+    console.log(currentMovie);
     return (
         <>
             <HeaderSearchButton />
@@ -27,7 +28,7 @@ export default function MovieDetails(props: any) {
                             </div>
                         </div>
                         <div className="header__movieGenre">
-                            {currentMovie.genres[0]}
+                            {currentMovie.genres}
                         </div>
                         <div className="header__movieSpecifics">
                             <span className="header__movieRelease">

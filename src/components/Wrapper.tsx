@@ -21,7 +21,7 @@ export default function Wrapper() {
 
     return (
         <>
-            <Header moviesData={movies} />
+            <Header moviesData={movies} searchType={searchType} />
             <ErrorBoundary>
                 <Content
                     screen={screen}

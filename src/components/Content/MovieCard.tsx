@@ -39,7 +39,7 @@ export default function MovieCard(props: MovieCardProps) {
                             <p>{props.release_date}</p>
                         </div>
                         <div className="movieCard__genre">
-                            <p>{props.genre}</p>
+                            <p>{props.genres}</p>
                         </div>
                     </div>
                 </div>

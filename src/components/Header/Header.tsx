@@ -14,7 +14,7 @@ function Header(props: Props) {
                 <div className="header__logoContainer">
                     <Logo />
                 </div>
-                <SearchForm />
+                <SearchForm searchType={props.searchType} />
             </header>
         );
     }
@@ -57,7 +57,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 export interface Props extends PropsFromRedux {
     a: Screen;
     moviesData: MovieData[];
-    searchMode: Search;
+    searchType: Search;
 }
 
 export default connector(Header);
