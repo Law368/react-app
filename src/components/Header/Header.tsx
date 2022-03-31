@@ -16,7 +16,7 @@ function Header(props: Props) {
                 </div>
                 <SearchForm
                     searchType={props.searchType}
-                    movieList={props.moviesData}
+                    movieList={props.moviesData?.movies}
                 />
             </header>
         );
@@ -30,7 +30,7 @@ function Header(props: Props) {
                     </div>
                     <MovieDetails moviesData={props.moviesData} />
                 </header>
-                <SearchResultsContainer movieList={props.moviesData} />
+                <SearchResultsContainer movieList={props.moviesData?.movies} />
             </>
         );
     }
@@ -59,7 +59,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 export interface Props extends PropsFromRedux {
     a: Screen;
-    moviesData: MovieData[];
+    moviesData: {movies: MovieData[]};
     searchType: Search;
 }
 

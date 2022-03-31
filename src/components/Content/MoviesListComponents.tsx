@@ -1,10 +1,10 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import MovieCard from './MovieCard';
-import {ContentProps} from '../../interfaces/interfaces';
+import {ContentNoWrapperProps} from '../../interfaces/interfaces';
 import {State} from '../../reducers/commonReducer';
 
-export default function MovieListComponents(props: ContentProps) {
+export default function MovieListComponents(props: ContentNoWrapperProps) {
     return (
         <>
             {props.moviesData.map((movieData) => (

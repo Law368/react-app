@@ -14,8 +14,7 @@ export default function Wrapper() {
     useEffect(() => {
         dispatch(fetchMovies());
     }, []);
-    const movies = useSelector((state: State) => state.moviesData?.movies);
-    // const sort = useSelector((state: State) => state.sortMode);
+    const movies = useSelector((state: State) => state.moviesData);
     const searchType = useSelector((state: State) => state.searchMode);
     const [screen, setScreen] = useState(Screen.MoviesList);
 
