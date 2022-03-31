@@ -9,7 +9,7 @@ import {currentMovie} from '../../actionCreators/currentMovie';
 
 export default function MovieCard(props: MovieCardProps) {
     const dispatch = useDispatch();
-    const movies = useSelector((state: State) => state.moviesData);
+    const movies = useSelector((state: State) => state.moviesData?.movies);
     const handleScreenChange = () => {
         dispatch(screenType(Screen.Movie));
 

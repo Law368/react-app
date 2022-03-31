@@ -17,7 +17,7 @@ const initialState = {
 
 export interface State {
     screen: Screen;
-    moviesData: MovieData[];
+    moviesData: {movies: MovieData[]};
     searchMode: Search;
     sortMode: Sort;
     currentMovie: MovieData;
@@ -35,7 +35,7 @@ export default (state: State, action: any) => {
         case MOVIES_FETCHING:
             return {
                 ...state,
-                moviesData: action.payload,
+                moviesData: {movies: action.payload},
             };
         case SEARCH_MODE:
             return {
