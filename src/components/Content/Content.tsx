@@ -4,9 +4,6 @@ import MovieListContainer from './MoviesListContainer';
 import {ContentProps} from '../../interfaces/interfaces';
 
 export default function Content(props: ContentProps) {
-    const handleClick = () => {
-        props.setScreen(Screen.Movie);
-    };
     return (
         <>
             <div className="content">

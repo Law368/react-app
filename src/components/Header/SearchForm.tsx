@@ -6,8 +6,12 @@ import {searchInput} from '../../actionCreators/searchInput';
 import {fetchMovies} from '../../fetchMovies';
 import {Search, Sort} from '../../enums/enum';
 import {State} from '../../reducers/commonReducer';
+import {MovieData} from '../../interfaces/interfaces';
 
-export default function SearchForm(props: {searchType: Search}) {
+export default function SearchForm(props: {
+    searchType: Search;
+    movieList: MovieData[];
+}) {
     const inputState = {value: ''};
     const [newInputState, setInputState] = useState(inputState);
     const dispatch = useDispatch();
@@ -55,7 +59,7 @@ export default function SearchForm(props: {searchType: Search}) {
                     </div>
                 </form>
             </div>
-            <SearchResultsContainer />
+            <SearchResultsContainer movieList={props.movieList} />
         </>
     );
 }

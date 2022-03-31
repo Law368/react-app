@@ -14,7 +14,10 @@ function Header(props: Props) {
                 <div className="header__logoContainer">
                     <Logo />
                 </div>
-                <SearchForm searchType={props.searchType} />
+                <SearchForm
+                    searchType={props.searchType}
+                    movieList={props.moviesData}
+                />
             </header>
         );
     }
@@ -27,7 +30,7 @@ function Header(props: Props) {
                     </div>
                     <MovieDetails moviesData={props.moviesData} />
                 </header>
-                <SearchResultsContainer />
+                <SearchResultsContainer movieList={props.moviesData} />
             </>
         );
     }

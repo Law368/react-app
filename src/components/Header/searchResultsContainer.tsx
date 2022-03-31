@@ -1,32 +1,30 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {moviesFetch} from '../../actionCreators/moviesFetch';
-import {sortMode} from '../../actionCreators/sortMode';
 import {Sort} from '../../enums/enum';
-import {fetchMovies} from '../../fetchMovies';
+import {MovieData} from '../../interfaces/interfaces';
 import {State} from '../../reducers/commonReducer';
 import {sortBy} from './functions/sortBy';
 import SearchResults from './SearchResults';
 
-export default function SearchResultsContainer() {
+export default function SearchResultsContainer(props: {
+    movieList: MovieData[];
+}) {
     const sortType = useSelector((state: State) => state.sortMode);
-    const movieList = useSelector((state: State) => state.moviesData);
-    // TODO убрать доступ к movieList, получить инфу через пропсы
     const dispatch = useDispatch();
     const handleActiveClass = (name: string) => () => {
         if (name === 'release date') {
-            sortBy(Sort.ReleaseDate, movieList, dispatch);
+            sortBy(Sort.ReleaseDate, props.movieList, dispatch);
         }
         if (name === 'rating') {
-            sortBy(Sort.Rating, movieList, dispatch);
+            sortBy(Sort.Rating, props.movieList, dispatch);
         }
     };
     return (
         <div className="header__searchResultsContainer">
             <div className="header__searchResults">
-                {movieList && (
+                {props.movieList && (
                     <p className="header__numberOfFilmsFound">
-                        {movieList.length} films found
+                        {props.movieList.length} films found
                     </p>
                 )}
                 <div className="header__sortBy">
