@@ -23,7 +23,7 @@ export function sortBy(
         array.sort((a: {vote_average: number}, b: {vote_average: number}) => {
             const ratingA = a.vote_average;
             const ratingB = b.vote_average;
-            return ratingA - ratingB;
+            return ratingB - ratingA;
         });
         console.log(array);
         dispatchFunction(moviesFetch(array));

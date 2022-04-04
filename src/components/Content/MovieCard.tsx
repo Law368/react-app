@@ -6,6 +6,7 @@ import {screenType} from '../../actionCreators/screenType';
 import {MovieCardProps, MovieData} from '../../interfaces/interfaces';
 import {State} from '../../reducers/commonReducer';
 import {currentMovie} from '../../actionCreators/currentMovie';
+import noImage from '../../img/illustration.jpg';
 
 export default function MovieCard(props: MovieCardProps) {
     const dispatch = useDispatch();
@@ -19,6 +20,9 @@ export default function MovieCard(props: MovieCardProps) {
         const selectedMovie = movies.find(isSelected);
         dispatch(currentMovie(props));
     };
+    const handleError = (e: any) => {
+        e.currentTarget.src = noImage;
+    };
 
     return (
         <>
@@ -29,6 +33,7 @@ export default function MovieCard(props: MovieCardProps) {
                             className="movieCard__poster"
                             src={props.poster_path}
                             alt="Movie Poster"
+                            onError={handleError}
                         />
                     </div>
                     <div className="movieCard__infoContainer">
