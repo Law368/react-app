@@ -1,5 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {sortMode} from '../../actionCreators/sortMode';
 import {Sort} from '../../enums/enum';
 import {MovieData} from '../../interfaces/interfaces';
 import {State} from '../../reducers/commonReducer';
@@ -13,10 +14,12 @@ export default function SearchResultsContainer(props: {
     const dispatch = useDispatch();
     const handleActiveClass = (name: string) => () => {
         if (name === 'release date') {
-            sortBy(Sort.ReleaseDate, props.movieList, dispatch);
+            // sortBy(Sort.ReleaseDate, props.movieList, dispatch);
+            dispatch(sortMode(Sort.ReleaseDate));
         }
         if (name === 'rating') {
-            sortBy(Sort.Rating, props.movieList, dispatch);
+            // sortBy(Sort.Rating, props.movieList, dispatch);
+            dispatch(sortMode(Sort.Rating));
         }
     };
     return (

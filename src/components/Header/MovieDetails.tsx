@@ -2,10 +2,14 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {State} from '../../reducers/commonReducer';
 import HeaderSearchButton from './HeaderSearchButton';
+import noImage from '../../img/illustration.jpg';
 
 export default function MovieDetails(props: any) {
     const currentMovie = useSelector((state: State) => state.currentMovie);
-    console.log(currentMovie);
+    const handleError = (e: any) => {
+        e.currentTarget.src = noImage;
+    };
+
     return (
         <>
             <HeaderSearchButton />
@@ -16,6 +20,7 @@ export default function MovieDetails(props: any) {
                             className="header__moviePoster"
                             src={currentMovie.poster_path}
                             alt="Header poster image"
+                            onError={handleError}
                         />
                     </div>
                     <div className="header__movieInfo">

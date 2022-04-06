@@ -10,7 +10,7 @@ export default function MoviesListContainer(props: ContentProps) {
                 <MovieListComponents
                     screen={props.screen}
                     setScreen={props.setScreen}
-                    moviesData={props.moviesData?.movies}
+                    moviesData={props.moviesData}
                 />
             </>
         );

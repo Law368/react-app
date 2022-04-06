@@ -24,7 +24,7 @@ interface MovieCardProps extends Omit<MovieData, 'genres'> {
 interface ContentProps {
     screen: string;
     setScreen: React.Dispatch<React.SetStateAction<Screen>>;
-    moviesData: {movies: MovieData[]};
+    moviesData: MovieData[];
 }
 interface ContentNoWrapperProps {
     screen: string;

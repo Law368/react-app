@@ -9,10 +9,18 @@ import {
 } from '../actions/constants/constants';
 import {MovieData} from '../interfaces/interfaces';
 
-const initialState = {
+interface MoviesInitialState {
+    screen: Screen;
+    searchMode: Search;
+    sortMode: Sort;
+    moviesData: {movies: MovieData[]};
+}
+
+const initialState: MoviesInitialState = {
     screen: Screen.MoviesList,
     searchMode: Search.Title,
     sortMode: Sort.Rating,
+    moviesData: {movies: []},
 };
 
 export interface State {
