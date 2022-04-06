@@ -1,9 +1,8 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {searchMode} from '../../actionCreators/searchMode';
-import {Search} from '../../enums/enum';
-import log from '../../helpers/log';
-import {State} from '../../reducers/commonReducer';
+import {searchMode} from '../../../actionCreators/searchMode';
+import {Search} from '../../../enums/enum';
+import {State} from '../../../reducers/commonReducer';
 import SearchModeButton from './SearchModeButton';
 
 export function SearchModeButtonContainer() {

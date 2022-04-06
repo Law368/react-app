@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchModeButton from '../components/Header/SearchModeButton';
+import SearchModeButton from '../components/Header/SearchModeButton/SearchModeButton';
 
 export default {
     title: 'SearchModeButton',

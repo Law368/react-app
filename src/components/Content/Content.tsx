@@ -1,6 +1,6 @@
 import React from 'react';
 import {Screen} from '../../enums/enum';
-import MovieListContainer from './MoviesListContainer';
+import MoviesList from './MoviesList';
 import {ContentProps} from '../../interfaces/interfaces';
 
 export default function Content(props: ContentProps) {
@@ -8,7 +8,7 @@ export default function Content(props: ContentProps) {
         <>
             <div className="content">
                 <div className="contentContainer">
-                    <MovieListContainer
+                    <MoviesList
                         screen={props.screen}
                         setScreen={props.setScreen}
                         moviesData={props.moviesData}

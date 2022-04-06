@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import SearchResultsContainer from './searchResultsContainer';
-import {SearchModeButtonContainer} from './SearchModeButtonContainer';
+import SearchResultsContainer from './SearchResults/searchResultsContainer';
+import {SearchModeButtonContainer} from './SearchModeButton/SearchModeButtonContainer';
 import {searchInput} from '../../actionCreators/searchInput';
 import {fetchMovies} from '../../fetchMovies';
 import {Search, Sort} from '../../enums/enum';

@@ -1,10 +1,10 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {sortMode} from '../../actionCreators/sortMode';
-import {Sort} from '../../enums/enum';
-import {MovieData} from '../../interfaces/interfaces';
-import {State} from '../../reducers/commonReducer';
-import {sortBy} from './functions/sortBy';
+import {sortMode} from '../../../actionCreators/sortMode';
+import {Sort} from '../../../enums/enum';
+import {MovieData} from '../../../interfaces/interfaces';
+import {State} from '../../../reducers/commonReducer';
+import {sortBy} from '../functions/sortBy';
 import SearchResults from './SearchResults';
 
 export default function SearchResultsContainer(props: {

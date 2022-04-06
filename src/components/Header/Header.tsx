@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import Logo from './Logo';
+import Logo from '../Logo/Logo';
 import SearchForm from './SearchForm';
 import {MovieData} from '../../interfaces/interfaces';
-import SearchResultsContainer from './searchResultsContainer';
+import SearchResultsContainer from './SearchResults/searchResultsContainer';
 import {Screen, Search} from '../../enums/enum';
 import MovieDetails from './MovieDetails';
 
