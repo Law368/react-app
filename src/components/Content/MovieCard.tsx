@@ -28,7 +28,7 @@ export default function MovieCard(props: MovieCardProps) {
     return (
         <>
             {' '}
-            <Link to="/movieinfo">
+            <Link to={`/movie/${props.id}`}>
                 <div className="movieCard" onClick={handleScreenChange}>
                     <div className="movieCard__container">
                         <div className="movieCard__posterContainer">

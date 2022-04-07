@@ -9,13 +9,11 @@ import {MovieInfo} from './components/Pages/MovieInfo';
 export function App() {
     return (
         <Provider store={store}>
-            <Router>
-                <Routes>
-                    <Route path="/movie/:id" element={<MovieInfo />} />
-                    <Route path="/" element={<MoviesList />} />
-                    <Route path="*" element={<MoviesList />} />
-                </Routes>
-            </Router>
+            <Routes>
+                <Route path="/" element={<MoviesList />}>
+                    <Route path="movie/:id" element={<MovieInfo />} />
+                </Route>
+            </Routes>
         </Provider>
     );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {Screen} from '../../enums/enum';
 import {screenType} from '../../actionCreators/screenType';
 
@@ -11,7 +12,7 @@ export default function HeaderSearchButton() {
 
     return (
         <button className="header__searchButton" onClick={handleScreenChange}>
-            search
+            <Link to={'/'}>search</Link>
         </button>
     );
 }

@@ -5,7 +5,7 @@ import MovieDetails from '../movieDetails/MovieDetails';
 export function MovieInfo() {
     const {id} = useParams();
     console.log(id);
-    return <MovieDetails id={id} />;
+    return <MovieDetails />;
 }
 
 // проверить есть в url id фильма, если есть то сделать запрос по API, чтобы получить данные по этому фильмы и положить их в стор,если фильма нет, то проверить store.
