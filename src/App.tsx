@@ -1,25 +1,22 @@
 import './style.scss';
 import React from 'react';
 import {Provider} from 'react-redux';
-import Wrapper from './components/Wrapper';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {store} from './store/store';
+import {MoviesList} from './components/Pages/MoviesList';
+import {MovieInfo} from './components/Pages/MovieInfo';
 
 export function App() {
     return (
         <Provider store={store}>
-            <Wrapper />
+            <Router>
+                <Routes>
+                    <Route path="/movie/:id" element={<MovieInfo />} />
+                    <Route path="/" element={<MoviesList />} />
+                    <Route path="*" element={<MoviesList />} />
+                </Routes>
+            </Router>
         </Provider>
     );
 }
-
-// moviesData={moviesData} screen={screen}
-// export const fetchMovesAction = (payload: MovieData[]) => ({type: MOVIES_FETCHING});
-
-// TODO: 1. Имплементация методов жизненнго цикла с помощью  хука USE EFFECT ( ComponentDidMount, ComponentDidUpdate,ComponentWillUnmount) +++
-// TODO: 2. В каком порядке отрабатывают все методы жизненного цикла ссылка: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/   +++
-// TODO: 3. Переименовать константы с глаголов на существительные и задать их в uppercase, прочитать конвенции нейминга +++
-// TODO: 4. Обеспечить последовательность добавления данных в store  и чтения из него. (moviesData моковые данные)
-// TODO: 5. Написать ThunkAction в котором я буду получать реальные данные о фильмах
-// TODO: 6.* Оптимизировать все это wrapper'ы (Как можно App обернуть в Provider store без дополнительных оберток)
-// TODO: 7. Прочитать документацию по Redux Thunk (Прочитал, мало что понял) +
-// TODO: 8. Подготовить вопросы к следующему созвону, добавить изменения в Pull Request ---
+// movie/<номер id>

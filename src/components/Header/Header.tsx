@@ -5,7 +5,7 @@ import SearchForm from './SearchForm';
 import {MovieData} from '../../interfaces/interfaces';
 import SearchResultsContainer from './SearchResults/searchResultsContainer';
 import {Screen, Search} from '../../enums/enum';
-import MovieDetails from './MovieDetails';
+import MovieDetails from '../movieDetails/MovieDetails';
 
 function Header(props: Props) {
     if (props.a === Screen.MoviesList) {

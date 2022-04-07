@@ -7,6 +7,7 @@ import {MovieCardProps, MovieData} from '../../interfaces/interfaces';
 import {State} from '../../reducers/commonReducer';
 import {currentMovie} from '../../actionCreators/currentMovie';
 import noImage from '../../img/illustration.jpg';
+import {Link} from 'react-router-dom';
 
 export default function MovieCard(props: MovieCardProps) {
     const dispatch = useDispatch();
@@ -26,29 +27,32 @@ export default function MovieCard(props: MovieCardProps) {
 
     return (
         <>
-            <div className="movieCard" onClick={handleScreenChange}>
-                <div className="movieCard__container">
-                    <div className="movieCard__posterContainer">
-                        <img
-                            className="movieCard__poster"
-                            src={props.poster_path}
-                            alt="Movie Poster"
-                            onError={handleError}
-                        />
-                    </div>
-                    <div className="movieCard__infoContainer">
-                        <div className="movieCard__title">
-                            <p>{props.title}</p>
+            {' '}
+            <Link to="/movieinfo">
+                <div className="movieCard" onClick={handleScreenChange}>
+                    <div className="movieCard__container">
+                        <div className="movieCard__posterContainer">
+                            <img
+                                className="movieCard__poster"
+                                src={props.poster_path}
+                                alt="Movie Poster"
+                                onError={handleError}
+                            />
                         </div>
-                        <div className="movieCard__releaseDate">
-                            <p>{props.release_date}</p>
-                        </div>
-                        <div className="movieCard__genre">
-                            <p>{props.genres}</p>
+                        <div className="movieCard__infoContainer">
+                            <div className="movieCard__title">
+                                <p>{props.title}</p>
+                            </div>
+                            <div className="movieCard__releaseDate">
+                                <p>{props.release_date}</p>
+                            </div>
+                            <div className="movieCard__genre">
+                                <p>{props.genres}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         </>
     );
 }

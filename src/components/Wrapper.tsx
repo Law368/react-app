@@ -13,13 +13,9 @@ import log from '../helpers/log';
 import {MovieData} from '../interfaces/interfaces';
 import {moviesFetch} from '../actionCreators/moviesFetch';
 
-// TODO 1.во Wrapper получать значения типа соритровки ++9+++++++
-// 2. в селекторе для moviesData добавить зависимость от значения типа сортировки
-// 3. логику сортировки перенести в селектор moviesData
 export default function Wrapper() {
     const dispatch = useDispatch();
     const sortType = useSelector((state: State) => state.sortMode);
-    console.log(sortType);
     const moviesData = createSelector(
         (state: any) => state.moviesData,
         (moviesWrapped: {movies: MovieData[]}) => {
@@ -32,7 +28,6 @@ export default function Wrapper() {
                         return ratingB - ratingA;
                     }
                 );
-                console.log(moviesWrapped.movies);
             }
 
             if (sortType === Sort.ReleaseDate) {
@@ -47,13 +42,11 @@ export default function Wrapper() {
                         return releaseDateA - releaseDateB;
                     }
                 );
-                console.log(moviesWrapped.movies);
             }
             return moviesWrapped.movies;
         }
     );
     const movies: any = useSelector(moviesData);
-    console.log(movies);
 
     const searchType = useSelector((state: State) => state.searchMode);
 
@@ -76,3 +69,11 @@ export default function Wrapper() {
         </>
     );
 }
+// TODO:
+// 1. Сделать Page для главной страницы +++
+// 2. Сделать Page для страницы с информацией о фильме
+// 3. При переходе на страницу с фильмом сделать так, чтобы в URL передовалась инофрмация о фильме(id) UseLocation (проверить есть ли в url какие то данные и если есть, то сделать запрос)
+// 4. Сделать так, чтобы при перезагрузке страницы текущий url сохранялся (получить значение id из url)
+
+// внутри MovieInfo получать данные из url c помощью location (hook useLocation)
+// с помощью urlUseParams получаем обхъект для удобной работы с пфраами ключ-значения полученных из текущего urla

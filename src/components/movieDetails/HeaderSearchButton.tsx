@@ -15,3 +15,5 @@ export default function HeaderSearchButton() {
         </button>
     );
 }
+
+// TODO: переделать HeaderSearchButton в универсальную кнопку в которую через пропсы будут передаваться имя
