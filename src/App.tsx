@@ -10,9 +10,8 @@ export function App() {
     return (
         <Provider store={store}>
             <Routes>
-                <Route path="/" element={<MoviesList />}>
-                    <Route path="movie/:id" element={<MovieInfo />} />
-                </Route>
+                <Route path="/" element={<MoviesList />} />
+                <Route path="movie/:id" element={<MovieInfo />} />
             </Routes>
         </Provider>
     );

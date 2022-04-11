@@ -13,6 +13,7 @@ module.exports = merge(common, {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, '../dist'),
         clean: true,
+        publicPath: '/',
     },
     devtool: 'source-map',
     devServer: {

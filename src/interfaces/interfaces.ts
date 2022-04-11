@@ -14,6 +14,8 @@ interface MovieData {
     revenue?: number;
     genres: string[];
     runtime?: number;
+    screen?: string;
+    setScreen?: React.Dispatch<React.SetStateAction<Screen>>;
 }
 interface MovieCardProps extends Omit<MovieData, 'genres'> {
     screen: string;

@@ -2,6 +2,7 @@ import {Screen, Search, Sort} from '../enums/enum';
 import {
     SCREEN_CHANGE,
     MOVIES_FETCHING,
+    MOVIE_FETCHING,
     SEARCH_MODE,
     SORT_MODE,
     CURRENT_MOVIE,
@@ -44,6 +45,11 @@ export default (state: State, action: any) => {
             return {
                 ...state,
                 moviesData: {movies: action.payload},
+            };
+        case MOVIE_FETCHING:
+            return {
+                ...state,
+                currentMovie: action.payload,
             };
         case SEARCH_MODE:
             return {
