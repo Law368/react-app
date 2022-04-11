@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import SearchResultsContainer from './SearchResults/searchResultsContainer';
+import {useDispatch} from 'react-redux';
 import {SearchModeButtonContainer} from './SearchModeButton/SearchModeButtonContainer';
 import {searchInput} from '../../actionCreators/searchInput';
 import {fetchMovies} from '../../fetchMovies';
-import {Search, Sort} from '../../enums/enum';
-import {State} from '../../reducers/commonReducer';
+import {Search} from '../../enums/enum';
 import {MovieData} from '../../interfaces/interfaces';
 
 export default function SearchForm(props: {
@@ -15,7 +13,7 @@ export default function SearchForm(props: {
     const inputState = {value: ''};
     const [newInputState, setInputState] = useState(inputState);
     const dispatch = useDispatch();
-    // const stateSearchMode = useSelector((state: State) => state.searchMode);
+
     const handleChange = (event: any) => {
         setInputState({value: event.target.value});
     };
@@ -59,7 +57,6 @@ export default function SearchForm(props: {
                     </div>
                 </form>
             </div>
-            <SearchResultsContainer movieList={props.movieList} />
         </>
     );
 }

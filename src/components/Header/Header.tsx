@@ -6,30 +6,31 @@ import {MovieData} from '../../interfaces/interfaces';
 import SearchResultsContainer from './SearchResults/searchResultsContainer';
 import {Screen, Search} from '../../enums/enum';
 import MovieDetails from '../movieDetails/MovieDetails';
+import HeaderSearchButton from '../movieDetails/HeaderSearchButton';
 
 function Header(props: Props) {
-    if (props.a === Screen.MoviesList) {
+    if (props.screen === Screen.MoviesList) {
         return (
-            <header className="header">
-                <div className="header__logoContainer">
-                    <Logo />
-                </div>
+            <>
+                <header className="header">
+                    <Logo placement={'header'} />
+                </header>
                 <SearchForm
                     searchType={props.searchType}
                     movieList={props.moviesData}
                 />
-            </header>
+                <SearchResultsContainer movieList={props.moviesData} />
+            </>
         );
     }
-    if (props.a === Screen.Movie) {
+    if (props.screen === Screen.Movie) {
         return (
             <>
                 <header className="header--movieDetails">
-                    <div className="header__logoContainer">
-                        <Logo />
-                    </div>
-                    <MovieDetails moviesData={props.moviesData} />
+                    <Logo placement={'header'} />
+                    <HeaderSearchButton />
                 </header>
+                <MovieDetails moviesData={props.moviesData} />
                 <SearchResultsContainer movieList={props.moviesData} />
             </>
         );
@@ -43,26 +44,17 @@ const mapStateToProps = (state: {
     searchMode: Search;
     currentMovie: MovieData;
 }) => ({
-    a: state.screen,
+    screen: state.screen,
     searchMode: state.searchMode,
 });
 
-// const mapDispatchToProps = (dispatch: any) => ({
-//     // changeScreen: () => dispatch(changeScreen(Screen.MoviesList)),
-//     // changeToMovie: () => dispatch(changeScreen(Screen.Movie)),
-//     setScreenType: (sreeenType: Screen) => dispatch(changeScreen(sreeenType)),
-// });
-
 const connector = connect(mapStateToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
-// export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 export interface Props extends PropsFromRedux {
-    a: Screen;
+    screen: Screen;
     moviesData: MovieData[];
     searchType: Search;
 }
 
 export default connector(Header);
-
-// Connect,mapStateToProps, mapDispatchToProps и какие еще 2 параметра можно добавить в hoc Connect

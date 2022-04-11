@@ -12,7 +12,6 @@ export default function MovieDetails(props: any) {
 
     return (
         <>
-            <HeaderSearchButton />
             <div className="header__movieDetailsContainer">
                 <div className="header__movieDetails">
                     <div className="header__moviePosterContainer">
