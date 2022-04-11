@@ -7,9 +7,7 @@ import {State} from '../../../reducers/commonReducer';
 import {sortBy} from '../functions/sortBy';
 import SearchResults from './SearchResults';
 
-export default function SearchResultsContainer(props: {
-    movieList: MovieData[];
-}) {
+export default function Status(props: {movieList: MovieData[]}) {
     const sortType = useSelector((state: State) => state.sortMode);
     const dispatch = useDispatch();
     const handleActiveClass = (name: string) => () => {

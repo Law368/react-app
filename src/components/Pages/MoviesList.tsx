@@ -11,7 +11,7 @@ import Content from '../Content/Content';
 import {ErrorBoundary} from '../ErrorBoundary';
 import Footer from '../Footer/Footer';
 import SearchForm from '../Header/SearchForm';
-import SearchResultsContainer from '../Header/SearchResults/searchResultsContainer';
+import Status from '../Header/SearchResults/Status';
 import {Header} from '../Header/Header';
 
 export function MoviesList() {
@@ -48,7 +48,7 @@ export function MoviesList() {
         <>
             <Header placement={'header'} />
             <SearchForm searchType={searchType} />
-            <SearchResultsContainer movieList={movies} />
+            <Status movieList={movies} />
             <ErrorBoundary>
                 <Content
                     screen={screen}

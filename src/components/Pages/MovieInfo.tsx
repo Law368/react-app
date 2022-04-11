@@ -14,7 +14,7 @@ import {ErrorBoundary} from '../ErrorBoundary';
 import Footer from '../Footer/Footer';
 import {movieFetch} from '../../actionCreators/movieFetch';
 import {Header} from '../Header/Header';
-import SearchResultsContainer from '../Header/SearchResults/searchResultsContainer';
+import Status from '../Header/SearchResults/Status';
 import HeaderSearchButton from '../movieDetails/HeaderSearchButton';
 import MovieDetails from '../movieDetails/MovieDetails';
 
@@ -93,7 +93,7 @@ export function MovieInfo() {
             />
             <HeaderSearchButton />
             <MovieDetails moviesData={movies} />
-            <SearchResultsContainer movieList={movies} />
+            <Status movieList={movies} />
 
             <ErrorBoundary>
                 <Content
