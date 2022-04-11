@@ -12,9 +12,11 @@ import {State} from '../../reducers/commonReducer';
 import Content from '../Content/Content';
 import {ErrorBoundary} from '../ErrorBoundary';
 import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import {currentMovie} from '../../actionCreators/currentMovie';
 import {movieFetch} from '../../actionCreators/movieFetch';
+import {Header} from '../Header/Header';
+import SearchResultsContainer from '../Header/SearchResults/searchResultsContainer';
+import HeaderSearchButton from '../movieDetails/HeaderSearchButton';
+import MovieDetails from '../movieDetails/MovieDetails';
 
 export function MovieInfo() {
     const dispatch = useDispatch();
@@ -44,6 +46,7 @@ export function MovieInfo() {
     const movies: any = useSelector(moviesData);
 
     const searchType = useSelector((state: State) => state.searchMode);
+    const screenMode = useSelector((state: State) => state.screen);
 
     const [screen, setScreen] = useState(Screen.MoviesList);
     useEffect(() => {
@@ -84,7 +87,14 @@ export function MovieInfo() {
     console.log(movieParams.id);
     return (
         <>
-            <Header moviesData={movies} searchType={searchType} />
+            <Header
+                placement={'header'}
+                displayMode={screenMode === Screen.Movie}
+            />
+            <HeaderSearchButton />
+            <MovieDetails moviesData={movies} />
+            <SearchResultsContainer movieList={movies} />
+
             <ErrorBoundary>
                 <Content
                     screen={screen}

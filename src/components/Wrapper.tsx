@@ -1,18 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {createSelector} from '@reduxjs/toolkit';
-import {useLocation} from 'react-router-dom';
 import {State} from '../reducers/commonReducer';
 import Content from './Content/Content';
 import {ErrorBoundary} from './ErrorBoundary';
 import Footer from './Footer/Footer';
-import Header from './Header/Header';
+import InfoBlock from './Header/InfoBlock';
 import {Screen, Sort} from '../enums/enum';
 import {fetchMovies} from '../fetchMovies';
-import {sortMode} from '../actionCreators/sortMode';
-import log from '../helpers/log';
 import {MovieData} from '../interfaces/interfaces';
-import {moviesFetch} from '../actionCreators/moviesFetch';
 import sortByReleaseDateDescending from '../helpers/sortByReleaseDateDescending';
 import sortByRatingDescending from '../helpers/sortByRatingDescending';
 
@@ -48,7 +44,7 @@ export default function Wrapper() {
     }, []);
     return (
         <>
-            <Header moviesData={movies} searchType={searchType} />
+            <InfoBlock moviesData={movies} searchType={searchType} />
             <ErrorBoundary>
                 <Content
                     screen={screen}

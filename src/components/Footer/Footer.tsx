@@ -1,10 +1,10 @@
 import React from 'react';
-import Logo from '../Logo/Logo';
+import {Header} from '../Header/Header';
 
 export default function Footer() {
     return (
         <footer className="footer">
-            <Logo placement={'footer'} />
+            <Header placement={'footer'} />
         </footer>
     );
 }

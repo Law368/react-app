@@ -6,10 +6,7 @@ import {fetchMovies} from '../../fetchMovies';
 import {Search} from '../../enums/enum';
 import {MovieData} from '../../interfaces/interfaces';
 
-export default function SearchForm(props: {
-    searchType: Search;
-    movieList: MovieData[];
-}) {
+export default function SearchForm(props: {searchType: Search}) {
     const inputState = {value: ''};
     const [newInputState, setInputState] = useState(inputState);
     const dispatch = useDispatch();

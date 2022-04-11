@@ -1,12 +1,12 @@
 import React from 'react';
-import Logo from '../components/Logo/Logo';
+import {Header} from '../components/Header/Header';
 
 export default {
     title: 'Logo',
-    component: Logo,
+    component: Header,
 };
 
-const Template = (args: any) => <Logo {...args} />;
+const Template = (args: any) => <Header {...args} />;
 
 export const logo = Template.bind({});
 logo.args = {
