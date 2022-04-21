@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {createSelector} from 'reselect';
+import {useLocation, useParams} from 'react-router-dom';
 import {Sort, Screen} from '../../enums/enum';
 import {fetchMovies} from '../../fetchMovies';
 import sortByRatingDescending from '../../helpers/sortByRatingDescending';
@@ -13,10 +14,15 @@ import Footer from '../Footer/Footer';
 import SearchForm from '../Header/SearchForm';
 import Status from '../Header/SearchResults/Status';
 import {Header} from '../Header/Header';
+import {moviesFetch} from '../../actionCreators/moviesFetch';
+import {fetchMoviesBySearchInput} from './functions/fetchMoviesBySearchInput';
 
 export function MoviesList() {
     const dispatch = useDispatch();
     const sortType = useSelector((state: State) => state.sortMode);
+    const location = useLocation();
+    const search = new URLSearchParams(location.search);
+    const searchValue = search.get('search');
     const moviesData = createSelector(
         (state: any) => state.moviesData,
         (moviesWrapped: {movies: MovieData[]}) => {
@@ -37,17 +43,24 @@ export function MoviesList() {
         }
     );
     const movies: any = useSelector(moviesData);
-
     const searchType = useSelector((state: State) => state.searchMode);
 
     const [screen, setScreen] = useState(Screen.MoviesList);
+    const [inputValue, setInputValue] = useState(searchValue);
+
     useEffect(() => {
-        dispatch(fetchMovies());
-    }, []);
+        if (location.search === '') {
+            dispatch(fetchMovies());
+        }
+        if (location.search !== '') {
+            fetchMoviesBySearchInput(setInputValue, dispatch, location);
+        }
+    }, [location.search]);
+
     return (
         <>
             <Header placement={'header'} />
-            <SearchForm searchType={searchType} />
+            <SearchForm searchType={searchType} URLparams={inputValue} />
             <Status movieList={movies} />
             <ErrorBoundary>
                 <Content
@@ -60,3 +73,5 @@ export function MoviesList() {
         </>
     );
 }
+
+// TODO: обеспечить переход назад в истоии просмотра фильмов.

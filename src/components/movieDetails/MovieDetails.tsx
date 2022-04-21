@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {State} from '../../reducers/commonReducer';
-import HeaderSearchButton from './HeaderSearchButton';
 import noImage from '../../img/illustration.jpg';
+import {NoFilmsFound} from '../Content/NoFilmsFound';
 
 export default function MovieDetails(props: any) {
     const currentMovie = useSelector((state: State) => state.currentMovie);
@@ -10,7 +10,7 @@ export default function MovieDetails(props: any) {
         e.currentTarget.src = noImage;
     };
 
-    return (
+    return currentMovie ? (
         <>
             <div className="header__movieDetailsContainer">
                 <div className="header__movieDetails">
@@ -49,5 +49,7 @@ export default function MovieDetails(props: any) {
                 </div>
             </div>
         </>
+    ) : (
+        <NoFilmsFound />
     );
 }

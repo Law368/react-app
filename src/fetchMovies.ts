@@ -18,6 +18,7 @@ export function fetchMovies(
         }>
     ) => {
         const url = `https://reactjs-cdp.herokuapp.com/movies?searchBy=${searchtType}&search=${searchInput}&sortBy=${sortBy}&sortOrder=desc`;
+        console.log(url);
         fetch(url, {
             mode: 'cors',
             headers: myHeader,
