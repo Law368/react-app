@@ -53,7 +53,7 @@ export function MoviesList() {
             dispatch(fetchMovies());
         }
         if (location.search !== '') {
-            fetchMoviesBySearchInput(setInputValue, dispatch, location);
+            dispatch(fetchMoviesBySearchInput(setInputValue, location));
         }
     }, [location.search]);
 
