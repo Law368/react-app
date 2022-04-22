@@ -12,20 +12,19 @@ export function fetchMovies(
     myHeader.append('Access-Control-Allow-Origin', '*');
 
     return (
-        dispatcher: Dispatch<{
+        dispatch: Dispatch<{
             type: string;
             payload: MovieData[];
         }>
     ) => {
         const url = `https://reactjs-cdp.herokuapp.com/movies?searchBy=${searchtType}&search=${searchInput}&sortBy=${sortBy}&sortOrder=desc`;
-        console.log(url);
         fetch(url, {
             mode: 'cors',
             headers: myHeader,
             method: 'GET',
         }).then((data) => {
             data.json().then((response) => {
-                dispatcher(moviesFetch(response.data));
+                dispatch(moviesFetch(response.data));
             });
         });
     };
