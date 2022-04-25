@@ -16,8 +16,9 @@ import {Header} from '../Header/Header';
 import Status from '../Header/SearchResults/Status';
 import HeaderSearchButton from '../movieDetails/HeaderSearchButton';
 import MovieDetails from '../movieDetails/MovieDetails';
+
+import {isSelectedMovieExist} from './functions/compareStoreAndURLId';
 import {fetchMovieDataById} from './functions/fetchMovieDataById';
-import {compareStoreAndURLId} from './functions/compareStoreAndURLId';
 
 export function MovieInfo() {
     const dispatch = useDispatch();
@@ -49,14 +50,12 @@ export function MovieInfo() {
     const [screen, setScreen] = useState(Screen.MoviesList);
     useEffect(() => {
         dispatch(fetchMovies());
+        if (isSelectedMovieExist(selectedMovie, movieParams)) {
+            dispatch(screenType(Screen.Movie));
+        }
+        dispatch(fetchMovieDataById(movieParams.id));
     }, []);
 
-    function checkIfMovieSelected() {
-        return selectedMovie
-            ? compareStoreAndURLId()
-            : fetchMovieDataById(movieParams.id);
-    }
-    checkIfMovieSelected();
     return (
         <>
             <Header

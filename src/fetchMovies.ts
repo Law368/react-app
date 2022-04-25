@@ -12,7 +12,7 @@ export function fetchMovies(
     myHeader.append('Access-Control-Allow-Origin', '*');
 
     return (
-        dispatcher: Dispatch<{
+        dispatch: Dispatch<{
             type: string;
             payload: MovieData[];
         }>
@@ -25,7 +25,7 @@ export function fetchMovies(
             method: 'GET',
         }).then((data) => {
             data.json().then((response) => {
-                dispatcher(moviesFetch(response.data));
+                dispatch(moviesFetch(response.data));
             });
         });
     };

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It shouldn't have a class header--movieDetails 1`] = `
+<header
+  className="header "
+>
+  <div
+    className="header__logoContainer"
+  >
+    <span
+      className="logo"
+    >
+      netflixroullete
+    </span>
+  </div>
+</header>
+`;
