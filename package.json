@@ -79,6 +79,7 @@
     "dependencies": {
         "@redux-devtools/extension": "^3.2.2",
         "@reduxjs/toolkit": "^1.8.0",
+        "@types/puppeteer": "^5.4.5",
         "@types/react-redux": "^7.1.23",
         "clean-webpack-plugin": "^4.0.0",
         "html-webpack-plugin": "^5.5.0",
