@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Search mode button should be active 1`] = `
+<button
+  className="search__modeButton search__modeButton--active"
+  type="button"
+>
+  Test Button
+</button>
+`;
+
 exports[`Search mode button should not be active 1`] = `
 <button
   className="search__modeButton "
