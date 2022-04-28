@@ -1,4 +1,4 @@
-import sortByReleaseDate from '../../helpers/sortByReleaseDateDescending';
+import sortByReleaseDate from '../helpers/sortByReleaseDateDescending';
 
 test('sorting by Release date subtracts the 2nd argument from the 1st argument ', () => {
     const a = {release_date: '2022-04-22'};

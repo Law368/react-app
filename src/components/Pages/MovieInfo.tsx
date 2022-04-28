@@ -14,8 +14,8 @@ import {ErrorBoundary} from '../ErrorBoundary';
 import Footer from '../Footer/Footer';
 import {Header} from '../Header/Header';
 import Status from '../Header/SearchResults/Status';
-import HeaderSearchButton from '../movieDetails/HeaderSearchButton';
-import MovieDetails from '../movieDetails/MovieDetails';
+import HeaderSearchButton from '../MovieDetails/HeaderSearchButton';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
 import {isSelectedMovieExist} from './functions/compareStoreAndURLId';
 import {fetchMovieDataById} from './functions/fetchMovieDataById';

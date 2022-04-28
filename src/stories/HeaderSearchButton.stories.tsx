@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderSearchButton from '../components/movieDetails/HeaderSearchButton';
+import HeaderSearchButton from '../components/MovieDetails/HeaderSearchButton';
 
 export default {
     title: 'HeaderSearchButton',

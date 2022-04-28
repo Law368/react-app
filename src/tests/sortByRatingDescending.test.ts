@@ -1,4 +1,4 @@
-import sortByRating from '../../helpers/sortByRatingDescending';
+import sortByRating from '../helpers/sortByRatingDescending';
 
 test('sorting by rating subtracts the 1st argument from the 2nd argument ', () => {
     const a = {vote_average: 5};

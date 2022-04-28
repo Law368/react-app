@@ -17,7 +17,6 @@ describe('Puppeteer testing', () => {
         const text = await element.evaluate((el: any) => el.textContent);
         await browser.close();
         expect(text).toMatch(/Harry Potter/);
-        // TODO: для постеров добавить id прямо в компоненте и чтобы по названию было сразу понятно что это id для тестов
     });
     it('Sort films by release date from the earliest to the latest', async () => {
         const browser = await puppeteer.launch({
@@ -28,7 +27,7 @@ describe('Puppeteer testing', () => {
         const page = await browser.newPage();
         await page.goto('http://localhost:8080/');
         await page.click('.header__sortOption', {clickCount: 1});
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(3000);
         const dates = await page.$$('.movieCard__releaseDate');
         const firstDate = await dates[0].evaluate((date: any) =>
             Number(date.textContent)
@@ -40,7 +39,7 @@ describe('Puppeteer testing', () => {
         expect(lastDate).toBeGreaterThan(firstDate);
     });
 
-    it('Search by Action genre returns action movies', async () => {
+    it('Search by adventure genre returns adventure movies', async () => {
         const browser = await puppeteer.launch({
             headless: false,
             slowMo: 10,
@@ -50,14 +49,13 @@ describe('Puppeteer testing', () => {
         await page.goto('http://localhost:8080/');
         const searchButtons = await page.$$('.search__modeButton ');
         await searchButtons[1].click({clickCount: 1});
-        await page.click('.header__sortOption', {clickCount: 1});
         await page.waitForTimeout(3000);
-        await page.type('#site-search', 'Drama');
+        await page.type('#site-search', 'adventure');
         await page.click('.search__button', {clickCount: 1});
         await page.waitForTimeout(3000);
         const element = await page.$('.movieCard__genre p');
         const text = await element.evaluate((el: any) => el.textContent);
         await browser.close();
-        expect(text).toMatch(/Drama/);
+        expect(text).toMatch(/A|adventure/);
     });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import SearchModeButton from '../../components/Header/SearchModeButton/SearchModeButton';
+import SearchModeButton from '../components/Header/SearchModeButton/SearchModeButton';
 
 it('Search mode button should be active', () => {
     const element = renderer

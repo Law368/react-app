@@ -1,4 +1,4 @@
-import {isSelectedMovieExist} from '../../components/Pages/functions/compareStoreAndURLId';
+import {isSelectedMovieExist} from '../components/Pages/functions/compareStoreAndURLId';
 
 describe('testing Selected Movie', () => {
     it('selected movie exist', () => {
@@ -11,9 +11,8 @@ describe('testing Selected Movie', () => {
             genres: ['123'],
         };
         const movieFromTheURL = {id: '300'};
-
-        expect(isSelectedMovieExist(movieFromTheStore, movieFromTheURL))
-            .toBeTruthy;
+        const result = isSelectedMovieExist(movieFromTheStore, movieFromTheURL);
+        expect(result).toBeTruthy;
     });
 
     it('No movie is selected', () => {
@@ -26,8 +25,7 @@ describe('testing Selected Movie', () => {
             genres: ['123'],
         };
         const movieFromTheURL = {id: '200'};
-
-        expect(isSelectedMovieExist(movieFromTheStore, movieFromTheURL))
-            .toBeFalsy;
+        const result = isSelectedMovieExist(movieFromTheStore, movieFromTheURL);
+        expect(result).toBeFalsy;
     });
 });
