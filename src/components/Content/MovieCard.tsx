@@ -1,13 +1,13 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {Screen} from '../../enums/enum';
-import './content.scss';
 import {screenType} from '../../actionCreators/screenType';
 import {MovieCardProps, MovieData} from '../../interfaces/interfaces';
 import {State} from '../../reducers/commonReducer';
 import {currentMovie} from '../../actionCreators/currentMovie';
 import noImage from '../../img/illustration.jpg';
-import {Link} from 'react-router-dom';
+import {StyledMovieCard} from '../styles/MovieCard.styled';
 
 export default function MovieCard(props: MovieCardProps) {
     const dispatch = useDispatch();
@@ -29,7 +29,10 @@ export default function MovieCard(props: MovieCardProps) {
         <>
             {' '}
             <Link to={`/movie/${props.id}`}>
-                <div className="movieCard" onClick={handleScreenChange}>
+                <StyledMovieCard
+                    className="movieCard"
+                    onClick={handleScreenChange}
+                >
                     <div className="movieCard__container">
                         <div className="movieCard__posterContainer">
                             <img
@@ -51,7 +54,7 @@ export default function MovieCard(props: MovieCardProps) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </StyledMovieCard>
             </Link>
         </>
     );
