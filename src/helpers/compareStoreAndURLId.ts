@@ -1,4 +1,4 @@
-import {MovieData} from '../../../interfaces/interfaces';
+import {MovieData} from '../interfaces/interfaces';
 
 interface Movie {
     id?: string;

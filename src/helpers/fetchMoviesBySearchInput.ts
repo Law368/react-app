@@ -1,5 +1,5 @@
 import {Location} from 'react-router-dom';
-import {moviesFetch} from '../../../actionCreators/moviesFetch';
+import {moviesFetch} from '../actionCreators/moviesFetch';
 
 export function fetchMoviesBySearchInput(
     setInputValue: Function,

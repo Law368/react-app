@@ -1,4 +1,4 @@
-import {isSelectedMovieExist} from '../components/Pages/functions/compareStoreAndURLId';
+import {isSelectedMovieExist} from '../helpers/compareStoreAndURLId';
 
 describe('testing Selected Movie', () => {
     it('selected movie exist', () => {

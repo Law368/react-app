@@ -4,7 +4,6 @@ import {useParams} from 'react-router-dom';
 import {createSelector} from 'reselect';
 import {screenType} from '../../actionCreators/screenType';
 import {Sort, Screen} from '../../enums/enum';
-import {fetchMovies} from '../../fetchMovies';
 import sortByRatingDescending from '../../helpers/sortByRatingDescending';
 import sortByReleaseDateDescending from '../../helpers/sortByReleaseDateDescending';
 import {MovieData} from '../../interfaces/interfaces';
@@ -17,8 +16,9 @@ import Status from '../Header/SearchResults/Status';
 import HeaderSearchButton from '../MovieDetails/HeaderSearchButton';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
-import {isSelectedMovieExist} from './functions/compareStoreAndURLId';
-import {fetchMovieDataById} from './functions/fetchMovieDataById';
+import {isSelectedMovieExist} from '../../helpers/compareStoreAndURLId';
+import {fetchMovieDataById} from '../../helpers/fetchMovieDataById';
+import {fetchMovies} from '../../helpers/fetchMovies';
 
 export function MovieInfo() {
     const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux';
-import {moviesFetch} from './actionCreators/moviesFetch';
-import {Search} from './enums/enum';
-import {MovieData} from './interfaces/interfaces';
+import {moviesFetch} from '../actionCreators/moviesFetch';
+import {Search} from '../enums/enum';
+import {MovieData} from '../interfaces/interfaces';
 
 export function fetchMovies(
     searchtType: string = Search.Title,

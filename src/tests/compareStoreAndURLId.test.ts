@@ -1,5 +1,5 @@
 import * as reactRedux from 'react-redux';
-import {isSelectedMovieExist} from '../components/Pages/functions/compareStoreAndURLId';
+import {isSelectedMovieExist} from '../helpers/compareStoreAndURLId';
 import {State} from '../reducers/commonReducer';
 
 const mockedDispatch = jest.fn();

@@ -1,12 +1,11 @@
-import React, {FormEvent, FormEventHandler, useEffect, useState} from 'react';
+import React, {FormEvent, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link, Navigate, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {SearchModeButtonContainer} from './SearchModeButton/SearchModeButtonContainer';
 import {searchInput} from '../../actionCreators/searchInput';
-import {fetchMovies} from '../../fetchMovies';
 import {Search, Sort} from '../../enums/enum';
-import {MovieData} from '../../interfaces/interfaces';
 import {State} from '../../reducers/commonReducer';
+import {fetchMovies} from '../../helpers/fetchMovies';
 
 export default function SearchForm(props: {
     searchType: Search;

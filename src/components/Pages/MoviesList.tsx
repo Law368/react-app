@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {createSelector} from 'reselect';
-import {useLocation, useParams} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import {Sort, Screen} from '../../enums/enum';
-import {fetchMovies} from '../../fetchMovies';
 import sortByRatingDescending from '../../helpers/sortByRatingDescending';
 import sortByReleaseDateDescending from '../../helpers/sortByReleaseDateDescending';
 import {MovieData} from '../../interfaces/interfaces';
@@ -14,8 +13,8 @@ import Footer from '../Footer/Footer';
 import SearchForm from '../Header/SearchForm';
 import Status from '../Header/SearchResults/Status';
 import {Header} from '../Header/Header';
-import {moviesFetch} from '../../actionCreators/moviesFetch';
-import {fetchMoviesBySearchInput} from './functions/fetchMoviesBySearchInput';
+import {fetchMoviesBySearchInput} from '../../helpers/fetchMoviesBySearchInput';
+import {fetchMovies} from '../../helpers/fetchMovies';
 
 export function MoviesList() {
     const dispatch = useDispatch();

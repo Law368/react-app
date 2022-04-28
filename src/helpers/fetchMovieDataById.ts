@@ -1,4 +1,4 @@
-import {movieFetch} from '../../../actionCreators/movieFetch';
+import {movieFetch} from '../actionCreators/movieFetch';
 
 export function fetchMovieDataById(MovieId: string) {
     return (dispatch: any) => {
