@@ -4,6 +4,7 @@ import {sortMode} from '../../../actionCreators/sortMode';
 import {Sort} from '../../../enums/enum';
 import {MovieData} from '../../../interfaces/interfaces';
 import {State} from '../../../reducers/commonReducer';
+import {StyledSearchResults} from '../../styles/SearchResults.styled';
 import {sortBy} from '../functions/sortBy';
 import SearchResults from './SearchResults';
 
@@ -12,11 +13,9 @@ export default function Status(props: {movieList: MovieData[]}) {
     const dispatch = useDispatch();
     const handleActiveClass = (name: string) => () => {
         if (name === 'release date') {
-            // sortBy(Sort.ReleaseDate, props.movieList, dispatch);
             dispatch(sortMode(Sort.ReleaseDate));
         }
         if (name === 'rating') {
-            // sortBy(Sort.Rating, props.movieList, dispatch);
             dispatch(sortMode(Sort.Rating));
         }
     };
@@ -30,16 +29,18 @@ export default function Status(props: {movieList: MovieData[]}) {
                 )}
                 <div className="header__sortBy">
                     <span>Sort by</span>
-                    <SearchResults
-                        name={'release date'}
+                    <StyledSearchResults
                         isActive={sortType === Sort.ReleaseDate}
-                        handleClick={handleActiveClass}
-                    />
-                    <SearchResults
-                        name={'rating'}
+                        onClick={handleActiveClass('release date')}
+                    >
+                        {'release date'}
+                    </StyledSearchResults>
+                    <StyledSearchResults
                         isActive={sortType === Sort.Rating}
-                        handleClick={handleActiveClass}
-                    />
+                        onClick={handleActiveClass('rating')}
+                    >
+                        {'rating'}
+                    </StyledSearchResults>
                 </div>
             </div>
         </div>

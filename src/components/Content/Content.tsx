@@ -7,7 +7,7 @@ import {StyledContent} from '../styles/Content.styled';
 export default function Content(props: ContentProps) {
     return (
         <>
-            <StyledContent className="content">
+            <StyledContent>
                 <div className="contentContainer">
                     <MoviesList
                         screen={props.screen}

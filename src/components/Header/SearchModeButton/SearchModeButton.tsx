@@ -1,5 +1,4 @@
-import React, {MouseEventHandler} from 'react';
-import log from '../../../helpers/log';
+import React from 'react';
 
 export default function SearchModeButton(props: {
     name: string;

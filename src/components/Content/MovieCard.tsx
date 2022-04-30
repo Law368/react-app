@@ -29,10 +29,7 @@ export default function MovieCard(props: MovieCardProps) {
         <>
             {' '}
             <Link to={`/movie/${props.id}`}>
-                <StyledMovieCard
-                    className="movieCard"
-                    onClick={handleScreenChange}
-                >
+                <StyledMovieCard onClick={handleScreenChange}>
                     <div className="movieCard__container">
                         <div className="movieCard__posterContainer">
                             <img
